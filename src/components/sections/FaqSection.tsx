@@ -55,6 +55,11 @@ export function FaqSection({ withFrame = false }: FaqSectionProps) {
           );
         })}
       </div>
+
+      <div className="faq-signoff" aria-label="Saluto degli sposi">
+        <p>Con tutto il nostro affetto, vi aspettiamo!</p>
+        <p>Daniel e Linda</p>
+      </div>
     </RevealSection>
   );
 }

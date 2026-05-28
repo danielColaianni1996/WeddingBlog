@@ -48,21 +48,31 @@ export const faqs = [
   {
     question: "E previsto un dress code?",
     answer:
-      "No, nessun dress code obbligatorio: scegliete un look elegante e comodo, con cui sentirvi voi stessi per tutta la giornata."
+      "Non è previsto un dress code specifico: sentitevi liberi di scegliere ciò che vi fa sentire al meglio. Vi chiediamo solo un abbigliamento elegante e di evitare il bianco, il verde e il rosso."
   },
   {
     question: "Cerimonia e ricevimento saranno nello stesso luogo?",
     answer:
-      "Si, sara tutto nella stessa location. Una volta arrivati potrete godervi cerimonia, ricevimento e festa senza altri spostamenti."
-  },
-  {
-    question: "I bambini sono invitati?",
-    answer:
-      "Si, certo. I piu piccoli sono i benvenuti: ci fara piacere condividere la giornata anche con loro."
+      "Si, sarà tutto nella stessa location, così potremo goderci ogni momento insieme senza altri spostamenti."
   },
   {
     question: "Ci sara parcheggio?",
     answer:
-      "Si, presso la location e presente un grande parcheggio a disposizione degli invitati."
+      "Si, presso la location è presente un grande parcheggio a disposizione degli invitati. Sarà presente un parcheggiatore che fornirà indicazioni per i posti auto."
+  },
+  {
+    question: "Come comunicare allergie o esigenze alimentari?",
+    answer:
+      "Vi chiediamo di comunicarci eventuali allergie o esigenze alimentari nel form di conferma della partecipazione. Vi chiediamo di farlo entro il 30 luglio 2027, così da poter organizzare al meglio il servizio di catering."
+  },
+  {
+    question: "I bambini sono invitati?",
+    answer:
+      "Si, certo. I più piccoli sono i benvenuti: ci farà piacere condividere la giornata anche con loro."
+  },
+  {
+    question: "É prevista una lista nozze?",
+    answer:
+      "No, la vostra presenza è il regalo più bello per noi. Se desiderate comunque farci un pensiero, potete contribuire alla nostra luna di miele tramite bonifico bancario. Nell'invito cartaceo saranno presenti i dettagli."
   }
 ] as const;
