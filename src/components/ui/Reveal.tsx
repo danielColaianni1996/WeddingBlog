@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { getSectionFrameClassName, type SectionFrame } from "./sectionFrame";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,6 +11,7 @@ type RevealSectionProps = RevealProps & {
   id?: string;
   ariaLabel?: string;
   style?: CSSProperties;
+  withFrame?: SectionFrame;
 };
 
 function getRevealClassName(className: string, isVisible: boolean) {
@@ -21,15 +23,17 @@ export function RevealSection({
   ariaLabel,
   children,
   className,
-  style
+  style,
+  withFrame = false
 }: RevealSectionProps) {
   const { elementRef, isVisible } = useScrollReveal<HTMLElement>();
+  const sectionClassName = getSectionFrameClassName(className, withFrame);
 
   return (
     <section
       ref={elementRef}
       id={id}
-      className={getRevealClassName(className, isVisible)}
+      className={getRevealClassName(sectionClassName, isVisible)}
       aria-label={ariaLabel}
       style={style}
     >

@@ -1,12 +1,18 @@
 import { weddingImages, weddingLocation } from "../../data/weddingContent";
 import { RevealSection } from "../ui/Reveal";
+import type { SectionFrame } from "../ui/sectionFrame";
 
-export function LocationSection() {
+type LocationSectionProps = {
+  withFrame?: SectionFrame;
+};
+
+export function LocationSection({ withFrame = false }: LocationSectionProps) {
   return (
     <RevealSection
       id="location"
       className="snap-section location-section"
       ariaLabel="Dove raggiungerci"
+      withFrame={withFrame}
     >
       <div className="section-copy">
         <p className="eyebrow">Dove raggiungerci</p>

@@ -1,6 +1,11 @@
 import { weddingDate } from "../../data/weddingContent";
 import { useCountdown, type TimeLeft } from "../../hooks/useCountdown";
 import { RevealDiv, RevealSection } from "../ui/Reveal";
+import type { SectionFrame } from "../ui/sectionFrame";
+
+type CountdownSectionProps = {
+  withFrame?: SectionFrame;
+};
 
 const countdownUnits: Array<{ key: keyof TimeLeft; label: string }> = [
   { key: "days", label: "giorni" },
@@ -9,11 +14,15 @@ const countdownUnits: Array<{ key: keyof TimeLeft; label: string }> = [
   { key: "seconds", label: "secondi" }
 ];
 
-export function CountdownSection() {
+export function CountdownSection({ withFrame = false }: CountdownSectionProps) {
   const timeLeft = useCountdown(weddingDate);
 
   return (
-    <RevealSection id="journey" className="snap-section countdown-section">
+    <RevealSection
+      id="journey"
+      className="snap-section countdown-section"
+      withFrame={withFrame}
+    >
       <div className="section-copy">
         <p className="eyebrow">Countdown</p>
         <h2>Ci siamo quasi</h2>

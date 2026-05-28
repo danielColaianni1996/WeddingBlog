@@ -1,8 +1,15 @@
 import type { CSSProperties } from "react";
 import { weddingImages } from "../../data/weddingContent";
 import { RevealSection } from "../ui/Reveal";
+import type { SectionFrame } from "../ui/sectionFrame";
 
-export function SaveTheDateSection() {
+type SaveTheDateSectionProps = {
+  withFrame?: SectionFrame;
+};
+
+export function SaveTheDateSection({
+  withFrame = false
+}: SaveTheDateSectionProps) {
   const videoStageStyle = {
     "--save-the-date-image": `url(${weddingImages.saveTheDate})`
   } as CSSProperties;
@@ -12,6 +19,7 @@ export function SaveTheDateSection() {
       id="save-the-date"
       className="video-gate"
       ariaLabel="Save the date"
+      withFrame={withFrame}
     >
       <div className="video-stage" style={videoStageStyle}>
         <video

@@ -1,8 +1,13 @@
 import { RevealDiv, RevealSection } from "../ui/Reveal";
+import type { SectionFrame } from "../ui/sectionFrame";
 
-export function RsvpSection() {
+type RsvpSectionProps = {
+  withFrame?: SectionFrame;
+};
+
+export function RsvpSection({ withFrame = false }: RsvpSectionProps) {
   return (
-    <RevealSection className="snap-section rsvp-section">
+    <RevealSection className="snap-section rsvp-section" withFrame={withFrame}>
       <RevealDiv className="rsvp-panel">
         <p className="eyebrow">RSVP</p>
         <h2 className="rsvp-title">Conferma partecipazione</h2>

@@ -43,13 +43,13 @@ function App() {
 
   return (
     <main>
-      <CoverSection />
+      <CoverSection withFrame="top" />
       <SaveTheDateSection />
-      <CountdownSection />
+      <CountdownSection withFrame="both" />
       <LocationSection />
       <StorySection />
-      <RsvpSection />
-      <FaqSection />
+      <RsvpSection withFrame="both" />
+      <FaqSection withFrame="bottom" />
     </main>
   );
 }

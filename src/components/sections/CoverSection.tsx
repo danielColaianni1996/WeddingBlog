@@ -1,13 +1,22 @@
 import type { CSSProperties } from "react";
 import { weddingImages } from "../../data/weddingContent";
+import {
+  getSectionFrameClassName,
+  type SectionFrame
+} from "../ui/sectionFrame";
 
-export function CoverSection() {
+type CoverSectionProps = {
+  withFrame?: SectionFrame;
+};
+
+export function CoverSection({ withFrame = false }: CoverSectionProps) {
   const coverStyle = {
     "--cover-image": `url(${weddingImages.cover})`
   } as CSSProperties;
+  const className = getSectionFrameClassName("cover-section", withFrame);
 
   return (
-    <section className="cover-section" aria-label="Daniel e Linda">
+    <section className={className} aria-label="Daniel e Linda">
       <div className="cover-card" style={coverStyle}>
         <div className="cover-copy">
           <h1>Save the date</h1>

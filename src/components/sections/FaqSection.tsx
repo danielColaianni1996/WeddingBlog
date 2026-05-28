@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { faqs } from "../../data/weddingContent";
 import { RevealArticle, RevealSection } from "../ui/Reveal";
+import type { SectionFrame } from "../ui/sectionFrame";
 
-export function FaqSection() {
+type FaqSectionProps = {
+  withFrame?: SectionFrame;
+};
+
+export function FaqSection({ withFrame = false }: FaqSectionProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
-    <RevealSection className="faq-section" ariaLabel="Domande frequenti">
+    <RevealSection
+      className="faq-section"
+      ariaLabel="Domande frequenti"
+      withFrame={withFrame}
+    >
       <div className="faq-header">
         <p className="eyebrow">FAQ</p>
         <h2>Domande utili</h2>
