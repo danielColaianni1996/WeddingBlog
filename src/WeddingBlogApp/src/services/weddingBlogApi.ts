@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5240/api";
+const apiBaseUrl =
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5240/api";
 
 export type CreateRsvpResponseRequest = {
   firstName: string;
@@ -15,6 +16,15 @@ export type RsvpResponse = CreateRsvpResponseRequest & {
   createdAtUtc: string;
 };
 
+export type LoginRequest = {
+  username: string;
+  password: string;
+};
+
+export type LoginResponse = {
+  userName: string;
+};
+
 export const weddingBlogApi = createApi({
   reducerPath: "weddingBlogApi",
   baseQuery: fetchBaseQuery({
@@ -23,7 +33,29 @@ export const weddingBlogApi = createApi({
   }),
   tagTypes: ["Rsvp"],
   endpoints: (builder) => ({
-    createRsvpResponse: builder.mutation<RsvpResponse, CreateRsvpResponseRequest>({
+    login: builder.mutation<LoginResponse, LoginRequest>({
+      query: (body) => ({
+        url: "auth/login",
+        method: "POST",
+        body
+      }),
+      invalidatesTags: ["Rsvp"]
+    }),
+    logout: builder.mutation<void, void>({
+      query: () => ({
+        url: "auth/logout",
+        method: "POST"
+      }),
+      invalidatesTags: ["Rsvp"]
+    }),
+    getRsvpResponses: builder.query<Array<RsvpResponse>, void>({
+      query: () => "rsvp",
+      providesTags: ["Rsvp"]
+    }),
+    createRsvpResponse: builder.mutation<
+      RsvpResponse,
+      CreateRsvpResponseRequest
+    >({
       query: (body) => ({
         url: "rsvp",
         method: "POST",
@@ -34,4 +66,9 @@ export const weddingBlogApi = createApi({
   })
 });
 
-export const { useCreateRsvpResponseMutation } = weddingBlogApi;
+export const {
+  useCreateRsvpResponseMutation,
+  useGetRsvpResponsesQuery,
+  useLoginMutation,
+  useLogoutMutation
+} = weddingBlogApi;

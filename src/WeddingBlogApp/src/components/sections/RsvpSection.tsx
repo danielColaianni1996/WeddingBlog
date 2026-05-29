@@ -55,8 +55,7 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
     } catch {
       setDialogState({
         type: "error",
-        message:
-          "Non siamo riusciti a salvare la conferma. Riprova tra poco."
+        message: "Non siamo riusciti a salvare la conferma. Riprova tra poco."
       });
     }
   };
@@ -85,7 +84,9 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
                 type="text"
                 placeholder="Es. Maria"
                 value={formState.firstName}
-                onChange={(event) => updateField("firstName", event.target.value)}
+                onChange={(event) =>
+                  updateField("firstName", event.target.value)
+                }
                 required
               />
             </label>
@@ -97,7 +98,9 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
                 type="text"
                 placeholder="Es. Rossi"
                 value={formState.lastName}
-                onChange={(event) => updateField("lastName", event.target.value)}
+                onChange={(event) =>
+                  updateField("lastName", event.target.value)
+                }
                 required
               />
             </label>
@@ -112,7 +115,9 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
                 min="1"
                 max="12"
                 value={formState.adultsCount}
-                onChange={(event) => updateField("adultsCount", event.target.value)}
+                onChange={(event) =>
+                  updateField("adultsCount", event.target.value)
+                }
                 required
               />
             </label>
@@ -125,7 +130,9 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
                 min="0"
                 max="12"
                 value={formState.childrenCount}
-                onChange={(event) => updateField("childrenCount", event.target.value)}
+                onChange={(event) =>
+                  updateField("childrenCount", event.target.value)
+                }
                 required
               />
             </label>
@@ -157,8 +164,14 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
 
       {dialogState && (
         <div className="rsvp-dialog" role="dialog" aria-modal="true">
-          <div className={`rsvp-dialog__panel rsvp-dialog__panel--${dialogState.type}`}>
-            <h3>{dialogState.type === "success" ? "Conferma ricevuta" : "Qualcosa non va"}</h3>
+          <div
+            className={`rsvp-dialog__panel rsvp-dialog__panel--${dialogState.type}`}
+          >
+            <h3>
+              {dialogState.type === "success"
+                ? "Conferma ricevuta"
+                : "Qualcosa non va"}
+            </h3>
             <p>{dialogState.message}</p>
             <button type="button" onClick={() => setDialogState(null)}>
               Chiudi

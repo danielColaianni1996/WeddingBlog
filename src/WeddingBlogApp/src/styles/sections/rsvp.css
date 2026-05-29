@@ -59,6 +59,7 @@
 
 .rsvp-form button {
   width: fit-content;
+  justify-self: center;
 }
 
 .rsvp-form button:disabled {
@@ -113,6 +114,7 @@
 
 .rsvp-dialog__panel button {
   width: fit-content;
+  justify-self: center;
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
