@@ -1,11 +1,8 @@
 import { weddingDate } from "../../data/weddingContent";
 import { useCountdown, type TimeLeft } from "../../hooks/useCountdown";
 import { RevealDiv, RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
-
-type CountdownSectionProps = {
-  withFrame?: SectionFrame;
-};
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
 const countdownUnits: Array<{ key: keyof TimeLeft; label: string }> = [
   { key: "days", label: "giorni" },
@@ -14,7 +11,7 @@ const countdownUnits: Array<{ key: keyof TimeLeft; label: string }> = [
   { key: "seconds", label: "secondi" }
 ];
 
-export function CountdownSection({ withFrame = false }: CountdownSectionProps) {
+export function CountdownSection({ withFrame = false }: SectionFrameProps) {
   const timeLeft = useCountdown(weddingDate);
 
   return (
@@ -23,14 +20,12 @@ export function CountdownSection({ withFrame = false }: CountdownSectionProps) {
       className="snap-section countdown-section"
       withFrame={withFrame}
     >
-      <div className="section-copy">
-        <p className="eyebrow">Countdown</p>
-        <h2>Ci siamo quasi</h2>
+      <SectionIntro eyebrow="Countdown" title="Ci siamo quasi">
         <p>
           Sabato 28 agosto 2027 sara il giorno di Daniel e Linda. Qui il conto
           alla rovescia accompagna gli invitati verso la conferma.
         </p>
-      </div>
+      </SectionIntro>
 
       <div
         className="countdown-grid"

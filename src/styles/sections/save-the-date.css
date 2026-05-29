@@ -1,0 +1,22 @@
+.video-gate {
+  grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+  background: #edf3ea;
+}
+
+.video-stage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(rgba(52, 70, 55, 0.28), rgba(52, 70, 55, 0.48)),
+    var(--save-the-date-image) center/cover;
+  border-radius: 8px;
+  box-shadow: 0 1.4rem 3.75rem rgba(72, 92, 75, 0.15);
+  overflow: hidden;
+}
+
+.save-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

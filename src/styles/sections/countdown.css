@@ -1,0 +1,37 @@
+.countdown-section {
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1fr);
+  background: #fffdf7;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(7rem, 1fr));
+  gap: 1rem;
+}
+
+.countdown-tile {
+  min-height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border: 1px solid rgba(190, 160, 86, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.countdown-tile strong {
+  color: #4f694f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.countdown-tile span {
+  color: #9c843d;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,48 @@
+.rsvp-section {
+  justify-items: center;
+  background: #fffdf7;
+}
+
+.rsvp-panel {
+  width: min(100%, 44rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid rgba(190, 160, 86, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.78);
+  box-shadow: 0 1.2rem 3.2rem rgba(72, 92, 75, 0.12);
+}
+
+.rsvp-title {
+  max-width: 100%;
+  margin-bottom: 1rem;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  overflow-wrap: anywhere;
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.rsvp-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: #26382a;
+  font-weight: 700;
+}
+
+.rsvp-form input,
+.rsvp-form select {
+  min-height: 3rem;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(79, 105, 79, 0.24);
+  border-radius: 6px;
+  background: #fffdf7;
+  color: #26382a;
+  font: inherit;
+}
+
+.rsvp-form button {
+  width: fit-content;
+}

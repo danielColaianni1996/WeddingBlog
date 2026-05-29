@@ -1,0 +1,97 @@
+.cover-section {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: #fffdf7;
+}
+
+.cover-card {
+  position: relative;
+  width: min(100%, 94rem);
+  min-height: min(48rem, calc(100svh - clamp(4rem, 10vw, 10rem)));
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(190, 160, 86, 0.35);
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(38, 56, 42, 0.14), rgba(38, 56, 42, 0.56)),
+    var(--cover-image) center/cover;
+  box-shadow: 0 1.4rem 3.5rem rgba(72, 92, 75, 0.14);
+  overflow: hidden;
+}
+
+.cover-card::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 253, 247, 0.58);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.cover-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  animation: cover-copy-in 900ms ease 150ms both;
+}
+
+.cover-copy .eyebrow,
+.cover-copy h1,
+.cover-copy .wedding-date {
+  color: #fffdf7;
+  text-shadow: 0 0.35rem 1.8rem rgba(25, 40, 29, 0.32);
+}
+
+.cover-copy h1 {
+  max-width: none;
+  font-size: clamp(4.6rem, 11vw, 9rem);
+}
+
+.cover-copy .eyebrow {
+  color: #ead28f;
+}
+
+.scroll-cue {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: clamp(1.5rem, 4vw, 3rem);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fffdf7;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+}
+
+.scroll-cue__mouse {
+  width: 1.65rem;
+  height: 2.75rem;
+  display: inline-flex;
+  justify-content: center;
+  padding-top: 0.48rem;
+  border: 1px solid rgba(255, 253, 247, 0.86);
+  border-radius: 999px;
+  background: rgba(38, 56, 42, 0.18);
+}
+
+.scroll-cue__mouse span {
+  width: 0.28rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #ead28f;
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+
+.scroll-cue__text {
+  text-shadow: 0 0.3rem 1rem rgba(25, 40, 29, 0.35);
+}

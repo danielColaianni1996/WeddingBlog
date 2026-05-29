@@ -1,0 +1,94 @@
+main {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  background:
+    radial-gradient(
+      circle at 20% 12%,
+      rgba(190, 160, 86, 0.18),
+      transparent 28rem
+    ),
+    linear-gradient(135deg, #fffdf7 0%, #f6f4ec 44%, #dfe9df 100%);
+}
+
+.section-frame--top::before,
+.section-frame--bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(8rem, 24vw, 22rem);
+  pointer-events: none;
+  background: url("/media/border.png") center top / min(100vw, 112rem) auto
+    no-repeat;
+  opacity: 0.48;
+}
+
+.section-frame--top::before {
+  top: 0;
+}
+
+.section-frame--bottom::after {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.section-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cover-section,
+.video-gate,
+.snap-section {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(2rem, 5vw, 5rem);
+  overflow: visible;
+}
+
+.reveal-on-scroll {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  animation: reveal-in 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.countdown-section.is-visible .countdown-tile,
+.story-section.is-visible .timeline-item,
+.rsvp-section.is-visible .rsvp-panel,
+.faq-section.is-visible .faq-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.countdown-tile.reveal-on-scroll:nth-child(2).is-visible,
+.timeline-item.reveal-on-scroll:nth-child(2).is-visible,
+.faq-card.reveal-on-scroll:nth-child(2).is-visible {
+  animation-delay: 70ms;
+}
+
+.countdown-tile.reveal-on-scroll:nth-child(3).is-visible,
+.timeline-item.reveal-on-scroll:nth-child(3).is-visible,
+.faq-card.reveal-on-scroll:nth-child(3).is-visible {
+  animation-delay: 140ms;
+}
+
+.countdown-tile.reveal-on-scroll:nth-child(4).is-visible,
+.timeline-item.reveal-on-scroll:nth-child(4).is-visible {
+  animation-delay: 210ms;
+}
+
+main > section:last-child {
+  padding-bottom: max(
+    clamp(5rem, 18vw, 12rem),
+    calc(4rem + env(safe-area-inset-bottom))
+  );
+}

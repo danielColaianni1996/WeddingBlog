@@ -1,5 +1,9 @@
 export type SectionFrame = boolean | "top" | "bottom" | "both";
 
+export type SectionFrameProps = {
+  withFrame?: SectionFrame;
+};
+
 export function getSectionFrameClassName(
   className: string,
   withFrame: SectionFrame = false

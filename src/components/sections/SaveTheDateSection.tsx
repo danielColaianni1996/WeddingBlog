@@ -1,15 +1,10 @@
 import type { CSSProperties } from "react";
 import { weddingImages } from "../../data/weddingContent";
 import { RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
-type SaveTheDateSectionProps = {
-  withFrame?: SectionFrame;
-};
-
-export function SaveTheDateSection({
-  withFrame = false
-}: SaveTheDateSectionProps) {
+export function SaveTheDateSection({ withFrame = false }: SectionFrameProps) {
   const videoStageStyle = {
     "--save-the-date-image": `url(${weddingImages.saveTheDate})`
   } as CSSProperties;
@@ -33,9 +28,11 @@ export function SaveTheDateSection({
         </video>
       </div>
 
-      <div className="intro-copy">
-        <p className="eyebrow">Save the date</p>
-        <h2>Un giorno da vivere insieme</h2>
+      <SectionIntro
+        className="intro-copy"
+        eyebrow="Save the date"
+        title="Un giorno da vivere insieme"
+      >
         <p>
           Questo primo schermo ospitera il video dell'invito. Dopo la visione,
           gli ospiti potranno scorrere tra countdown, dettagli e conferma.
@@ -43,7 +40,7 @@ export function SaveTheDateSection({
         <a className="primary-action" href="#journey">
           Scopri i dettagli
         </a>
-      </div>
+      </SectionIntro>
     </RevealSection>
   );
 }

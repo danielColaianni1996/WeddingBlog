@@ -1,0 +1,135 @@
+.location-section {
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1fr);
+  background: #edf3ea;
+}
+
+.location-card {
+  width: min(100%, 38rem);
+  justify-self: end;
+  display: grid;
+  border: 1px solid rgba(190, 160, 86, 0.34);
+  border-radius: 8px;
+  background: #fffdf7;
+  box-shadow: 0 1.2rem 3.2rem rgba(72, 92, 75, 0.11);
+  overflow: hidden;
+}
+
+.location-card__media {
+  position: relative;
+  min-height: clamp(12rem, 26svh, 14rem);
+  background: #dfe9df;
+  overflow: hidden;
+}
+
+.location-card__media img {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(12rem, 26svh, 14rem);
+  display: block;
+  object-fit: cover;
+}
+
+.location-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(38, 56, 42, 0.02),
+    rgba(38, 56, 42, 0.58)
+  );
+}
+
+.location-card__overlay {
+  position: absolute;
+  left: clamp(1.25rem, 4vw, 2rem);
+  right: clamp(1.25rem, 4vw, 2rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 1;
+}
+
+.location-card__overlay .eyebrow,
+.location-card__overlay h3 {
+  color: #fffdf7;
+  text-shadow: 0 0.35rem 1.4rem rgba(25, 40, 29, 0.4);
+}
+
+.location-card__overlay .eyebrow {
+  margin-bottom: 0.4rem;
+  color: #ead28f;
+}
+
+.location-card__overlay h3 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-weight: 500;
+  line-height: 0.96;
+}
+
+.location-card__content {
+  display: grid;
+  gap: 0.65rem;
+  padding: clamp(1rem, 2.2vw, 1.45rem);
+}
+
+.location-description {
+  margin: 0;
+  color: #52614f;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.location-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #26382a;
+  font-weight: 800;
+}
+
+.clock-icon {
+  position: relative;
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: 0 0 auto;
+  border: 2px solid #4f694f;
+  border-radius: 999px;
+}
+
+.clock-icon::before,
+.clock-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 2px;
+  border-radius: 999px;
+  background: #b49754;
+  transform-origin: bottom center;
+}
+
+.clock-icon::before {
+  height: 0.48rem;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.clock-icon::after {
+  height: 0.62rem;
+  transform: translateX(-50%) rotate(120deg);
+}
+
+.location-card address {
+  margin: 0;
+  color: #7b6d44;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.location-card .primary-action {
+  width: fit-content;
+  justify-self: center;
+  margin-top: 0.45rem;
+}

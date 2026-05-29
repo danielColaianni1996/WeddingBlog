@@ -1,20 +1,22 @@
 import { RevealDiv, RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
-type RsvpSectionProps = {
-  withFrame?: SectionFrame;
-};
-
-export function RsvpSection({ withFrame = false }: RsvpSectionProps) {
+export function RsvpSection({ withFrame = false }: SectionFrameProps) {
   return (
     <RevealSection className="snap-section rsvp-section" withFrame={withFrame}>
       <RevealDiv className="rsvp-panel">
-        <p className="eyebrow">RSVP</p>
-        <h2 className="rsvp-title">Conferma partecipazione</h2>
-        <p>
-          Qui nasceranno login da invito, numero partecipanti, preferenze
-          alimentari, note per gli sposi e stato della risposta.
-        </p>
+        <SectionIntro
+          className="rsvp-intro"
+          eyebrow="RSVP"
+          title="Conferma partecipazione"
+          titleClassName="rsvp-title"
+        >
+          <p>
+            Qui nasceranno login da invito, numero partecipanti, preferenze
+            alimentari, note per gli sposi e stato della risposta.
+          </p>
+        </SectionIntro>
 
         <form className="rsvp-form">
           <label>

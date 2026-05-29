@@ -1,13 +1,10 @@
 import type { CSSProperties } from "react";
 import { timeline, weddingImages } from "../../data/weddingContent";
 import { RevealArticle, RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
-type StorySectionProps = {
-  withFrame?: SectionFrame;
-};
-
-export function StorySection({ withFrame = false }: StorySectionProps) {
+export function StorySection({ withFrame = false }: SectionFrameProps) {
   const storyStyle = {
     "--story-image": `url(${weddingImages.story})`
   } as CSSProperties;
@@ -18,14 +15,16 @@ export function StorySection({ withFrame = false }: StorySectionProps) {
       style={storyStyle}
       withFrame={withFrame}
     >
-      <div className="section-copy wide">
-        <p className="eyebrow">La giornata</p>
-        <h2>Una pagina verticale, elegante e guidata</h2>
+      <SectionIntro
+        className="section-copy wide"
+        eyebrow="La giornata"
+        title="Una pagina verticale, elegante e guidata"
+      >
         <p>
           Ogni blocco puo diventare una scena: location, viaggio, dress code,
           lista nozze, album, domande frequenti e area personale dell'invitato.
         </p>
-      </div>
+      </SectionIntro>
 
       <div className="timeline">
         {timeline.map((item) => (

@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { faqs } from "../../data/weddingContent";
 import { RevealArticle, RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
-type FaqSectionProps = {
-  withFrame?: SectionFrame;
-};
-
-export function FaqSection({ withFrame = false }: FaqSectionProps) {
+export function FaqSection({ withFrame = false }: SectionFrameProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
@@ -16,14 +13,12 @@ export function FaqSection({ withFrame = false }: FaqSectionProps) {
       ariaLabel="Domande frequenti"
       withFrame={withFrame}
     >
-      <div className="faq-header">
-        <p className="eyebrow">FAQ</p>
-        <h2>Domande utili</h2>
+      <SectionIntro className="faq-header" eyebrow="FAQ" title="Domande utili">
         <p>
           Piccole informazioni pratiche per arrivare sereni e godersi la
           giornata insieme a Daniel e Linda.
         </p>
-      </div>
+      </SectionIntro>
 
       <div className="faq-grid">
         {faqs.map((item, index) => {

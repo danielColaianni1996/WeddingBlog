@@ -1,0 +1,26 @@
+.primary-action,
+.rsvp-form button {
+  min-height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 0 1.35rem;
+  border: 1px solid rgba(190, 160, 86, 0.5);
+  border-radius: 999px;
+  color: #fffdf7;
+  background: #4f694f;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.primary-action:hover,
+.rsvp-form button:hover {
+  background: #b49754;
+  transform: translateY(-2px);
+}

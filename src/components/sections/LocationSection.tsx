@@ -1,12 +1,9 @@
 import { weddingImages, weddingLocation } from "../../data/weddingContent";
 import { RevealSection } from "../ui/Reveal";
-import type { SectionFrame } from "../ui/sectionFrame";
+import { SectionIntro } from "../ui/SectionIntro";
+import type { SectionFrameProps } from "../ui/sectionFrame";
 
-type LocationSectionProps = {
-  withFrame?: SectionFrame;
-};
-
-export function LocationSection({ withFrame = false }: LocationSectionProps) {
+export function LocationSection({ withFrame = false }: SectionFrameProps) {
   return (
     <RevealSection
       id="location"
@@ -14,14 +11,12 @@ export function LocationSection({ withFrame = false }: LocationSectionProps) {
       ariaLabel="Dove raggiungerci"
       withFrame={withFrame}
     >
-      <div className="section-copy">
-        <p className="eyebrow">Dove raggiungerci</p>
-        <h2>La location</h2>
+      <SectionIntro eyebrow="Dove raggiungerci" title="La location">
         <p>
           Tutte le informazioni utili per arrivare sereni e godersi la giornata
           insieme a noi.
         </p>
-      </div>
+      </SectionIntro>
 
       <article className="location-card">
         <div className="location-card__media">
