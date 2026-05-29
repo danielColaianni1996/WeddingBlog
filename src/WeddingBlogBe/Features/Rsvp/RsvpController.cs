@@ -36,6 +36,52 @@ public sealed class RsvpController(WeddingBlogDbContext dbContext) : ControllerB
         return CreatedAtAction(nameof(GetById), new { id = response.Id }, response.ToDto());
     }
 
+    [HttpPut("{id:int}")]
+    [Authorize]
+    public async Task<IActionResult> Update(int id, CreateRsvpResponseRequest request)
+    {
+        var validationError = Validate(request);
+
+        if (validationError is not null)
+        {
+            return BadRequest(new { error = validationError });
+        }
+
+        var response = await dbContext.RsvpResponses.FindAsync(id);
+
+        if (response is null)
+        {
+            return NotFound();
+        }
+
+        response.FirstName = request.FirstName!.Trim();
+        response.LastName = request.LastName!.Trim();
+        response.AdultsCount = request.AdultsCount;
+        response.ChildrenCount = request.ChildrenCount;
+        response.FoodNotes = NormalizeOptionalText(request.FoodNotes);
+
+        await dbContext.SaveChangesAsync();
+
+        return Ok(response.ToDto());
+    }
+
+    [HttpDelete("{id:int}")]
+    [Authorize]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var response = await dbContext.RsvpResponses.FindAsync(id);
+
+        if (response is null)
+        {
+            return NotFound();
+        }
+
+        dbContext.RsvpResponses.Remove(response);
+        await dbContext.SaveChangesAsync();
+
+        return NoContent();
+    }
+
     [HttpGet]
     [Authorize]
     public async Task<ActionResult<IReadOnlyList<RsvpResponseDto>>> GetAll()

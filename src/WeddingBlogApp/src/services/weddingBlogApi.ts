@@ -62,13 +62,33 @@ export const weddingBlogApi = createApi({
         body
       }),
       invalidatesTags: ["Rsvp"]
+    }),
+    updateRsvpResponse: builder.mutation<
+      RsvpResponse,
+      { id: number; body: CreateRsvpResponseRequest }
+    >({
+      query: ({ id, body }) => ({
+        url: `rsvp/${id}`,
+        method: "PUT",
+        body
+      }),
+      invalidatesTags: ["Rsvp"]
+    }),
+    deleteRsvpResponse: builder.mutation<void, number>({
+      query: (id) => ({
+        url: `rsvp/${id}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["Rsvp"]
     })
   })
 });
 
 export const {
   useCreateRsvpResponseMutation,
+  useDeleteRsvpResponseMutation,
   useGetRsvpResponsesQuery,
   useLoginMutation,
-  useLogoutMutation
+  useLogoutMutation,
+  useUpdateRsvpResponseMutation
 } = weddingBlogApi;
