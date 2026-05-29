@@ -72,11 +72,11 @@ CREATE TABLE IF NOT EXISTS "AspNetUserTokens" (
 
 CREATE TABLE IF NOT EXISTS "RsvpResponses" (
     "Id" INTEGER NOT NULL CONSTRAINT "PK_RsvpResponses" PRIMARY KEY AUTOINCREMENT,
-    "GuestName" TEXT NOT NULL,
-    "Attendance" TEXT NOT NULL,
-    "GuestsCount" INTEGER NOT NULL,
-    "DietaryNotes" TEXT NULL,
-    "Message" TEXT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "AdultsCount" INTEGER NOT NULL,
+    "ChildrenCount" INTEGER NOT NULL,
+    "FoodNotes" TEXT NULL,
     "CreatedAtUtc" TEXT NOT NULL
 );
 

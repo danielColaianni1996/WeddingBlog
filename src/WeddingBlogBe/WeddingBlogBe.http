@@ -24,11 +24,11 @@ POST {{WeddingBlogBe_HostAddress}}/api/rsvp
 Content-Type: application/json
 
 {
-	"guestName": "Maria Rossi",
-	"attendance": "yes",
-	"guestsCount": 2,
-	"dietaryNotes": "Vegetariano",
-	"message": "Non vediamo l'ora!"
+	"firstName": "Maria",
+	"lastName": "Rossi",
+	"adultsCount": 2,
+	"childrenCount": 1,
+	"foodNotes": "Vegetariano, no frutta secca"
 }
 
 ###

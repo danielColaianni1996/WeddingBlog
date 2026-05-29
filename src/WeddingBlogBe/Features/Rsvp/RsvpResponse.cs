@@ -4,15 +4,15 @@ public sealed class RsvpResponse
 {
     public int Id { get; set; }
 
-    public required string GuestName { get; set; }
+    public required string FirstName { get; set; }
 
-    public required string Attendance { get; set; }
+    public required string LastName { get; set; }
 
-    public int GuestsCount { get; set; }
+    public int AdultsCount { get; set; }
 
-    public string? DietaryNotes { get; set; }
+    public int ChildrenCount { get; set; }
 
-    public string? Message { get; set; }
+    public string? FoodNotes { get; set; }
 
     public DateTime CreatedAtUtc { get; set; }
 }

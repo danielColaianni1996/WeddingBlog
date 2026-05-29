@@ -54,6 +54,7 @@
   }
 
   .countdown-grid,
+  .rsvp-form__grid,
   .timeline-item {
     grid-template-columns: 1fr;
   }

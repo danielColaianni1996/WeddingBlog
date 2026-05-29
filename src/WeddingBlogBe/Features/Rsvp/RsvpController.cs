@@ -9,8 +9,6 @@ namespace WeddingBlogBe.Features.Rsvp;
 [Route("api/rsvp")]
 public sealed class RsvpController(WeddingBlogDbContext dbContext) : ControllerBase
 {
-    private static readonly string[] AllowedAttendanceValues = ["yes", "maybe", "no"];
-
     [HttpPost]
     [AllowAnonymous]
     public async Task<IActionResult> Create(CreateRsvpResponseRequest request)
@@ -24,11 +22,11 @@ public sealed class RsvpController(WeddingBlogDbContext dbContext) : ControllerB
 
         var response = new RsvpResponse
         {
-            GuestName = request.GuestName!.Trim(),
-            Attendance = request.Attendance!.Trim().ToLowerInvariant(),
-            GuestsCount = request.GuestsCount,
-            DietaryNotes = NormalizeOptionalText(request.DietaryNotes),
-            Message = NormalizeOptionalText(request.Message),
+            FirstName = request.FirstName!.Trim(),
+            LastName = request.LastName!.Trim(),
+            AdultsCount = request.AdultsCount,
+            ChildrenCount = request.ChildrenCount,
+            FoodNotes = NormalizeOptionalText(request.FoodNotes),
             CreatedAtUtc = DateTime.UtcNow
         };
 
@@ -47,11 +45,11 @@ public sealed class RsvpController(WeddingBlogDbContext dbContext) : ControllerB
             .OrderByDescending(response => response.CreatedAtUtc)
             .Select(response => new RsvpResponseDto(
                 response.Id,
-                response.GuestName,
-                response.Attendance,
-                response.GuestsCount,
-                response.DietaryNotes,
-                response.Message,
+                response.FirstName,
+                response.LastName,
+                response.AdultsCount,
+                response.ChildrenCount,
+                response.FoodNotes,
                 response.CreatedAtUtc))
             .ToListAsync();
 
@@ -71,24 +69,29 @@ public sealed class RsvpController(WeddingBlogDbContext dbContext) : ControllerB
 
     private static string? Validate(CreateRsvpResponseRequest request)
     {
-        if (string.IsNullOrWhiteSpace(request.GuestName))
+        if (string.IsNullOrWhiteSpace(request.FirstName))
         {
-            return "Guest name is required.";
+            return "First name is required.";
         }
 
-        if (string.IsNullOrWhiteSpace(request.Attendance))
+        if (string.IsNullOrWhiteSpace(request.LastName))
         {
-            return "Attendance is required.";
+            return "Last name is required.";
         }
 
-        if (!AllowedAttendanceValues.Contains(request.Attendance.Trim().ToLowerInvariant()))
+        if (request.AdultsCount < 1 || request.AdultsCount > 12)
         {
-            return "Attendance must be yes, maybe or no.";
+            return "Adults count must be between 1 and 12.";
         }
 
-        if (request.GuestsCount < 0 || request.GuestsCount > 12)
+        if (request.ChildrenCount < 0 || request.ChildrenCount > 12)
         {
-            return "Guests count must be between 0 and 12.";
+            return "Children count must be between 0 and 12.";
+        }
+
+        if (request.AdultsCount + request.ChildrenCount > 12)
+        {
+            return "Total guests count cannot be greater than 12.";
         }
 
         return null;

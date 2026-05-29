@@ -25,6 +25,12 @@
   margin-top: 2rem;
 }
 
+.rsvp-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .rsvp-form label {
   display: grid;
   gap: 0.45rem;
@@ -33,7 +39,8 @@
 }
 
 .rsvp-form input,
-.rsvp-form select {
+.rsvp-form select,
+.rsvp-form textarea {
   min-height: 3rem;
   padding: 0 0.9rem;
   border: 1px solid rgba(79, 105, 79, 0.24);
@@ -43,6 +50,80 @@
   font: inherit;
 }
 
+.rsvp-form textarea {
+  min-height: 7rem;
+  padding-block: 0.8rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
 .rsvp-form button {
   width: fit-content;
+}
+
+.rsvp-form button:disabled {
+  opacity: 0.76;
+  cursor: wait;
+  transform: none;
+}
+
+.rsvp-button-loader {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.55rem;
+  border: 2px solid rgba(255, 253, 247, 0.42);
+  border-top-color: #fffdf7;
+  border-radius: 999px;
+  animation: loading-spin 760ms linear infinite;
+}
+
+.rsvp-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(38, 56, 42, 0.34);
+}
+
+.rsvp-dialog__panel {
+  width: min(100%, 26rem);
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid rgba(190, 160, 86, 0.38);
+  border-radius: 8px;
+  background: #fffdf7;
+  box-shadow: 0 1.5rem 3.5rem rgba(25, 40, 29, 0.22);
+}
+
+.rsvp-dialog__panel--success {
+  border-color: rgba(79, 105, 79, 0.45);
+}
+
+.rsvp-dialog__panel--error {
+  border-color: rgba(150, 70, 55, 0.45);
+}
+
+.rsvp-dialog__panel h3,
+.rsvp-dialog__panel p {
+  margin: 0;
+}
+
+.rsvp-dialog__panel button {
+  width: fit-content;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.35rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(190, 160, 86, 0.5);
+  border-radius: 999px;
+  color: #fffdf7;
+  background: #4f694f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
