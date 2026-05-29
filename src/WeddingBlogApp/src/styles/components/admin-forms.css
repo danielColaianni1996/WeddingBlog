@@ -1,0 +1,67 @@
+.admin-login-card {
+  width: min(100%, 28rem);
+  display: grid;
+  gap: 1rem;
+  justify-self: center;
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.admin-login-card h2 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.admin-login-card label,
+.admin-modal__panel label,
+.admin-table-toolbar label {
+  display: grid;
+  gap: 0.45rem;
+  color: #26382a;
+  font-weight: 800;
+}
+
+.admin-login-card input,
+.admin-modal__panel input,
+.admin-modal__panel textarea,
+.admin-table-toolbar input {
+  min-height: 3rem;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(79, 105, 79, 0.24);
+  border-radius: 6px;
+  background: #fffdf7;
+  color: #26382a;
+  font: inherit;
+}
+
+.admin-modal__panel textarea {
+  min-height: 7rem;
+  padding-block: 0.8rem;
+  resize: vertical;
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.admin-form-error {
+  margin: 0;
+  color: #964637;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.admin-form-message {
+  margin: 0;
+  color: #4f694f;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+@media (max-width: 680px) {
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

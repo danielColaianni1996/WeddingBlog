@@ -92,3 +92,25 @@ main > section:last-child {
     calc(4rem + env(safe-area-inset-bottom))
   );
 }
+
+@media (max-width: 980px) {
+  .cover-section,
+  .video-gate,
+  .countdown-section,
+  .location-section,
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+
+  .video-stage {
+    order: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .cover-section,
+  .video-gate,
+  .snap-section {
+    padding: 1.25rem;
+  }
+}

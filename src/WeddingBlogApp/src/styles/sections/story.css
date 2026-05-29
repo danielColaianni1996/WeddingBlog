@@ -39,3 +39,9 @@
 .timeline-item p {
   font-size: 0.96rem;
 }
+
+@media (max-width: 560px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+}

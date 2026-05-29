@@ -1,0 +1,42 @@
+.admin-login-card button,
+.admin-primary-action,
+.admin-secondary-action,
+.admin-modal__panel button,
+.admin-row-actions button {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.2rem;
+  border: 1px solid rgba(190, 160, 86, 0.5);
+  border-radius: 999px;
+  color: #fffdf7;
+  background: #4f694f;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-login-card button {
+  width: fit-content;
+  justify-self: center;
+  margin-top: 0.35rem;
+}
+
+.admin-login-card button:disabled,
+.admin-primary-action:disabled,
+.admin-secondary-action:disabled,
+.admin-modal__panel button:disabled,
+.admin-row-actions button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.admin-secondary-action,
+.admin-modal__actions button:first-child,
+.admin-row-actions button {
+  min-height: 2.35rem;
+  padding-inline: 0.85rem;
+  background: #fffdf7;
+  color: #4f694f;
+}

@@ -158,3 +158,19 @@
   overflow: hidden;
   font-size: 1rem;
 }
+
+@media (max-width: 980px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq-section {
+    padding: 1.25rem;
+  }
+}

@@ -2,6 +2,10 @@
 @import "./styles/layout.css";
 @import "./styles/typography.css";
 @import "./styles/actions.css";
+@import "./styles/components/admin-actions.css";
+@import "./styles/components/admin-forms.css";
+@import "./styles/components/admin-modal.css";
+@import "./styles/components/admin-table.css";
 @import "./styles/components/loading.css";
 @import "./styles/sections/cover.css";
 @import "./styles/sections/save-the-date.css";
@@ -11,4 +15,3 @@
 @import "./styles/sections/rsvp.css";
 @import "./styles/sections/faq.css";
 @import "./styles/pages/administration.css";
-@import "./styles/responsive.css";

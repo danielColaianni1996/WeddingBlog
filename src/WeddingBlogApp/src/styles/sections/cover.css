@@ -95,3 +95,16 @@
 .scroll-cue__text {
   text-shadow: 0 0.3rem 1rem rgba(25, 40, 29, 0.35);
 }
+
+@media (max-width: 980px) {
+  .cover-card {
+    min-height: calc(100svh - 4rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .cover-card {
+    min-height: calc(100svh - 2.5rem);
+    background-position: center;
+  }
+}
