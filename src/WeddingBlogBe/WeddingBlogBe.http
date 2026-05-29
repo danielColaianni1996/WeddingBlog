@@ -1,0 +1,11 @@
+@WeddingBlogBe_HostAddress = http://localhost:5240
+
+GET {{WeddingBlogBe_HostAddress}}/
+Accept: application/json
+
+###
+
+GET {{WeddingBlogBe_HostAddress}}/health
+Accept: application/json
+
+###
