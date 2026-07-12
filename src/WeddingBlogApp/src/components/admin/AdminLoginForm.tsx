@@ -2,13 +2,13 @@ import type { FormEvent } from "react";
 
 type AdminLoginFormProps = {
   credentials: {
-    username: string;
+    email: string;
     password: string;
   };
   error: string | null;
   isLoading: boolean;
   onCredentialsChange: (credentials: {
-    username: string;
+    email: string;
     password: string;
   }) => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
@@ -25,17 +25,17 @@ export function AdminLoginForm({
     <form className="admin-login-card" onSubmit={onSubmit}>
       <h2>Accesso area riservata</h2>
       <label>
-        Username
+        Email
         <input
-          type="text"
-          value={credentials.username}
+          type="email"
+          value={credentials.email}
           onChange={(event) =>
             onCredentialsChange({
               ...credentials,
-              username: event.target.value
+              email: event.target.value
             })
           }
-          autoComplete="username"
+          autoComplete="email"
           required
         />
       </label>

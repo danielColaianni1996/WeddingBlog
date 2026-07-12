@@ -59,7 +59,21 @@ Le animazioni e gli stati UI sono gestiti con React state/hooks. Redux Toolkit s
 ```bash
 cd src/WeddingBlogApp
 npm install
+copy .env.example .env.local
 npm run dev
 npm run build
 npm run lint
 ```
+
+## Supabase
+
+L'app usa Supabase per salvare le risposte RSVP e autenticare l'area amministrazione. Configurare `.env.local` partendo da `.env.example`:
+
+```text
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-public-anon-key
+```
+
+Applicare lo script SQL in `../../supabase/001_create_rsvp_schema.sql` dal SQL editor Supabase, poi creare l'utente admin in Supabase Auth e inserire il suo `user_id` nella tabella `public.admin_users`.
+
+RSVP e amministrazione sono gestiti direttamente tramite Supabase.

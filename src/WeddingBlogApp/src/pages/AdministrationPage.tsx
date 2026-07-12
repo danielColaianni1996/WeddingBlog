@@ -15,6 +15,7 @@ import {
   type RsvpResponse,
   useCreateRsvpResponseMutation,
   useDeleteRsvpResponseMutation,
+  useGetCurrentUserQuery,
   useGetRsvpResponsesQuery,
   useLoginMutation,
   useLogoutMutation,
@@ -23,7 +24,7 @@ import {
 
 export function AdministrationPage() {
   const [credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: ""
   });
   const [globalFilter, setGlobalFilter] = useState("");
@@ -35,19 +36,26 @@ export function AdministrationPage() {
   const [formError, setFormError] = useState<string | null>(null);
   const [login, { isLoading: isLoginLoading }] = useLoginMutation();
   const [logout, { isLoading: isLogoutLoading }] = useLogoutMutation();
+  const {
+    data: currentUser,
+    isLoading: isSessionLoading,
+    refetch: refetchCurrentUser
+  } = useGetCurrentUserQuery();
   const [createRsvpResponse, { isLoading: isCreating }] =
     useCreateRsvpResponseMutation();
   const [updateRsvpResponse, { isLoading: isUpdating }] =
     useUpdateRsvpResponseMutation();
   const [deleteRsvpResponse, { isLoading: isDeleting }] =
     useDeleteRsvpResponseMutation();
-  const {
-    data: responses = [],
-    isFetching,
-    isError,
-    refetch
-  } = useGetRsvpResponsesQuery();
-  const isAuthenticated = !isError;
+  const { data: responses = [], isFetching } = useGetRsvpResponsesQuery(
+    undefined,
+    { skip: !currentUser?.isAdmin }
+  );
+  const isAuthenticated = Boolean(currentUser?.isAdmin);
+  const authorizationError =
+    currentUser && !currentUser.isAdmin
+      ? "Utente autenticato, ma non abilitato come amministratore RSVP. Inserisci il suo user_id in public.admin_users."
+      : null;
   const isSaving = isCreating || isUpdating;
 
   const updateRsvpForm = (field: keyof AdminRsvpFormState, value: string) => {
@@ -87,8 +95,8 @@ export function AdministrationPage() {
 
     try {
       await login(credentials).unwrap();
-      setCredentials({ username: "", password: "" });
-      await refetch();
+      setCredentials({ email: "", password: "" });
+      await refetchCurrentUser();
     } catch {
       setLoginError("Credenziali non valide o servizio non disponibile.");
     }
@@ -97,7 +105,7 @@ export function AdministrationPage() {
   const handleLogout = async () => {
     await logout().unwrap();
     resetModalState();
-    await refetch();
+    await refetchCurrentUser();
   };
 
   const handleSaveRsvp = async (event: FormEvent<HTMLFormElement>) => {
@@ -161,14 +169,28 @@ export function AdministrationPage() {
           )}
         </header>
 
-        {!isAuthenticated ? (
-          <AdminLoginForm
-            credentials={credentials}
-            error={loginError}
-            isLoading={isLoginLoading}
-            onCredentialsChange={setCredentials}
-            onSubmit={handleLogin}
-          />
+        {isSessionLoading ? null : !isAuthenticated ? (
+          <>
+            <AdminLoginForm
+              credentials={credentials}
+              error={loginError ?? authorizationError}
+              isLoading={isLoginLoading}
+              onCredentialsChange={setCredentials}
+              onSubmit={handleLogin}
+            />
+            {authorizationError && (
+              <div className="admin-header-actions">
+                <button
+                  type="button"
+                  className="admin-secondary-action"
+                  onClick={handleLogout}
+                  disabled={isLogoutLoading}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <RsvpResponsesTable
             responses={responses}
