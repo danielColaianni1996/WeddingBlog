@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CountdownSection } from "../components/sections/CountdownSection";
 import { CoverSection } from "../components/sections/CoverSection";
 import { FaqSection } from "../components/sections/FaqSection";
+import { GallerySection } from "../components/sections/GallerySection";
 import { LocationSection } from "../components/sections/LocationSection";
 import { RsvpSection } from "../components/sections/RsvpSection";
 import { SaveTheDateSection } from "../components/sections/SaveTheDateSection";
@@ -58,6 +59,7 @@ export function WeddingBlogPage() {
       <CountdownSection withFrame="both" />
       <LocationSection />
       <StorySection />
+      <GallerySection />
       <RsvpSection withFrame="both" />
       <FaqSection withFrame="bottom" />
     </main>

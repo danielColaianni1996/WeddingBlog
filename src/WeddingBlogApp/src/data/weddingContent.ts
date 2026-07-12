@@ -10,6 +10,33 @@ export const weddingImages = {
     "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1400&q=75"
 } as const;
 
+export const galleryImages = [
+  {
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=75",
+    alt: "Sposi che camminano mano nella mano all'aperto",
+    title: "Promessa",
+    caption: "Un momento lento, prima di iniziare davvero a festeggiare."
+  },
+  {
+    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1400&q=75",
+    alt: "Allestimento elegante per un ricevimento di nozze",
+    title: "Tavoli",
+    caption: "Dettagli semplici, luci calde e un posto per ogni storia."
+  },
+  {
+    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=75",
+    alt: "Brindisi durante un ricevimento di nozze",
+    title: "Brindisi",
+    caption: "Calici in alto per le persone che ci accompagnano da sempre."
+  },
+  {
+    src: "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1400&q=75",
+    alt: "Pista da ballo illuminata durante una festa di matrimonio",
+    title: "Festa",
+    caption: "La parte in cui la giornata si scioglie nella musica."
+  }
+] as const;
+
 export const timeline = [
   {
     time: "16:30",
