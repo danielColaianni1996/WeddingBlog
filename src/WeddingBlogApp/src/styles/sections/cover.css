@@ -107,4 +107,20 @@
     min-height: calc(100svh - 2.5rem);
     background-position: center;
   }
+
+  .cover-card::before {
+    inset: 0.65rem;
+  }
+
+  .cover-copy {
+    padding: 1.35rem;
+  }
+
+  .cover-copy h1 {
+    font-size: clamp(4rem, 22vw, 5.8rem);
+  }
+
+  .scroll-cue {
+    bottom: 1.1rem;
+  }
 }

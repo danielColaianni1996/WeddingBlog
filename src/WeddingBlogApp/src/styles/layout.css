@@ -98,7 +98,8 @@ main > section:last-child {
   .video-gate,
   .countdown-section,
   .location-section,
-  .story-section {
+  .story-section,
+  .gallery-section {
     grid-template-columns: 1fr;
   }
 
@@ -108,9 +109,20 @@ main > section:last-child {
 }
 
 @media (max-width: 560px) {
-  .cover-section,
   .video-gate,
   .snap-section {
-    padding: 1.25rem;
+    min-height: auto;
+    align-items: start;
+    gap: 1.5rem;
+    padding: 4rem 1.25rem;
+  }
+
+  .cover-section {
+    min-height: 100svh;
+    padding: 1rem;
+  }
+
+  main > section:last-child {
+    padding-bottom: max(5rem, calc(4rem + env(safe-area-inset-bottom)));
   }
 }

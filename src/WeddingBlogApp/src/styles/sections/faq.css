@@ -171,6 +171,29 @@
 
 @media (max-width: 560px) {
   .faq-section {
-    padding: 1.25rem;
+    padding: 4rem 1.25rem;
+  }
+
+  .faq-question {
+    grid-template-columns: 2rem 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .faq-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .faq-question h3 {
+    font-size: clamp(1.2rem, 7vw, 1.55rem);
+  }
+
+  .faq-answer {
+    padding-inline: 1rem;
+  }
+
+  .faq-card.is-open .faq-answer {
+    padding-bottom: 1rem;
   }
 }

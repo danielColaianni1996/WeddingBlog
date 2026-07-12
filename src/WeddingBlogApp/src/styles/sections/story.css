@@ -40,8 +40,21 @@
   font-size: 0.96rem;
 }
 
+@media (max-width: 980px) {
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 560px) {
   .timeline-item {
     grid-template-columns: 1fr;
+    gap: 0.45rem;
+    padding: 0.9rem;
+  }
+
+  .timeline-item p {
+    font-size: 0.94rem;
+    line-height: 1.55;
   }
 }

@@ -135,6 +135,10 @@
 }
 
 @media (max-width: 980px) {
+  .location-section {
+    grid-template-columns: 1fr;
+  }
+
   .location-card {
     justify-self: stretch;
   }
@@ -143,6 +147,14 @@
 @media (max-width: 560px) {
   .location-card__media,
   .location-card__media img {
-    min-height: 15rem;
+    min-height: 13.5rem;
+  }
+
+  .location-card__overlay h3 {
+    font-size: clamp(1.65rem, 12vw, 2.25rem);
+  }
+
+  .location-card .primary-action {
+    width: 100%;
   }
 }

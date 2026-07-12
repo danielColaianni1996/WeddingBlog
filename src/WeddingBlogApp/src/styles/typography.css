@@ -69,3 +69,31 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: clamp(3.25rem, 19vw, 5rem);
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.65rem, 15vw, 4.25rem);
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.65rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .section-copy,
+  .intro-copy,
+  .rsvp-panel {
+    max-width: 100%;
+  }
+}

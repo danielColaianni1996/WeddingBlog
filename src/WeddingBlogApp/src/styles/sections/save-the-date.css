@@ -20,3 +20,16 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 980px) {
+  .video-gate {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .video-stage {
+    aspect-ratio: 4 / 5;
+    max-height: 32rem;
+  }
+}
