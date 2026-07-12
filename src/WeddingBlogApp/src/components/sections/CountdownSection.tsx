@@ -22,8 +22,8 @@ export function CountdownSection({ withFrame = false }: SectionFrameProps) {
     >
       <SectionIntro eyebrow="Countdown" title="Ci siamo quasi">
         <p>
-          Sabato 28 agosto 2027 sara il giorno di Daniel e Linda. Qui il conto
-          alla rovescia accompagna gli invitati verso la conferma.
+          Il countdown al nostro giorno: ogni secondo ci avvicina a sabato 28
+          agosto 2027.
         </p>
       </SectionIntro>
 
