@@ -17,27 +17,38 @@ const criticalImages = [
   weddingImages.story
 ];
 
+const envelopeOpenAnimationMs = 1700;
+
 export function WeddingBlogPage() {
   const areImagesReady = useImagePreloader(criticalImages, {
     minimumMs: 3000,
     timeoutMs: 3000
   });
-  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  const [isEnvelopeOpening, setIsEnvelopeOpening] = useState(false);
+  const [hasEnvelopeAnimationCompleted, setHasEnvelopeAnimationCompleted] =
+    useState(false);
+  const isLoaderVisible = !areImagesReady || !hasEnvelopeAnimationCompleted;
 
   useEffect(() => {
-    if (!areImagesReady) {
+    if (!isEnvelopeOpening) {
       return;
     }
 
-    const exitTimeoutId = window.setTimeout(() => {
-      setIsLoaderVisible(false);
-    }, 1100);
+    const animationTimeoutId = window.setTimeout(() => {
+      setHasEnvelopeAnimationCompleted(true);
+    }, envelopeOpenAnimationMs);
 
-    return () => window.clearTimeout(exitTimeoutId);
-  }, [areImagesReady]);
+    return () => window.clearTimeout(animationTimeoutId);
+  }, [isEnvelopeOpening]);
 
   if (isLoaderVisible) {
-    return <LoadingScreen isScratching={areImagesReady} />;
+    return (
+      <LoadingScreen
+        isOpening={isEnvelopeOpening}
+        isReady={areImagesReady}
+        onOpen={() => setIsEnvelopeOpening(true)}
+      />
+    );
   }
 
   return (
