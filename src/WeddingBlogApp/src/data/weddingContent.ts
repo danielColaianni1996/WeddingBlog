@@ -1,8 +1,7 @@
 export const weddingDate = new Date("2027-08-28T16:30:00+02:00");
 
 export const weddingImages = {
-  cover:
-    "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=75",
+  cover: "/media/weddingHero.jpg",
   saveTheDate:
     "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=75",
   location: "/media/location.jpg",
