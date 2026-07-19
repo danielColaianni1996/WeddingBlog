@@ -1,4 +1,4 @@
-# WeddingBlog 
+# WeddingBlog
 
 Wedding blog di Daniel e Linda, realizzato con React, Vite e Supabase.
 
