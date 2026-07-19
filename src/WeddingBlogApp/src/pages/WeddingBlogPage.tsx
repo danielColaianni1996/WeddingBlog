@@ -13,7 +13,6 @@ import { useImagePreloader } from "../hooks/useImagePreloader";
 
 const criticalImages = [
   weddingImages.cover,
-  weddingImages.saveTheDate,
   weddingImages.location,
   weddingImages.story
 ];

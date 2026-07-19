@@ -1,14 +1,8 @@
-import type { CSSProperties } from "react";
-import { weddingImages } from "../../data/weddingContent";
 import { RevealSection } from "../ui/Reveal";
 import { SectionIntro } from "../ui/SectionIntro";
 import type { SectionFrameProps } from "../ui/sectionFrame";
 
 export function SaveTheDateSection({ withFrame = false }: SectionFrameProps) {
-  const videoStageStyle = {
-    "--save-the-date-image": `url(${weddingImages.saveTheDate})`
-  } as CSSProperties;
-
   return (
     <RevealSection
       id="save-the-date"
@@ -16,13 +10,8 @@ export function SaveTheDateSection({ withFrame = false }: SectionFrameProps) {
       ariaLabel="Save the date"
       withFrame={withFrame}
     >
-      <div className="video-stage" style={videoStageStyle}>
-        <video
-          className="save-video"
-          controls
-          playsInline
-          poster="/save-the-date-poster.jpg"
-        >
+      <div className="video-stage">
+        <video className="save-video" controls playsInline preload="metadata">
           <source src="/media/save-the-date.mp4" type="video/mp4" />
           Il tuo browser non supporta il video HTML5.
         </video>

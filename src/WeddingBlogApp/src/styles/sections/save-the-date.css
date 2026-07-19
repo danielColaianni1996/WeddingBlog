@@ -6,9 +6,7 @@
 .video-stage {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background:
-    linear-gradient(rgba(52, 70, 55, 0.28), rgba(52, 70, 55, 0.48)),
-    var(--save-the-date-image) center/cover;
+  background: #000;
   border-radius: 8px;
   box-shadow: 0 1.4rem 3.75rem rgba(72, 92, 75, 0.15);
   overflow: hidden;
@@ -18,7 +16,14 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: #000;
+}
+
+.save-video:fullscreen {
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (max-width: 980px) {
@@ -29,7 +34,8 @@
 
 @media (max-width: 560px) {
   .video-stage {
-    aspect-ratio: 4 / 5;
-    max-height: 32rem;
+    width: min(100%, 20rem);
+    aspect-ratio: 9 / 16;
+    justify-self: center;
   }
 }
