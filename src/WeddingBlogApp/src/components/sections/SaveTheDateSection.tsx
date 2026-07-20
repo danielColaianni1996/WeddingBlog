@@ -11,7 +11,13 @@ export function SaveTheDateSection({ withFrame = false }: SectionFrameProps) {
       withFrame={withFrame}
     >
       <div className="video-stage">
-        <video className="save-video" controls playsInline preload="metadata">
+        <video
+          className="save-video"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/media/coverSaveTheDate.jpg"
+        >
           <source src="/media/save-the-date.mp4" type="video/mp4" />
           Il tuo browser non supporta il video HTML5.
         </video>
