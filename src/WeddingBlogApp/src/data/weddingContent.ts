@@ -9,36 +9,67 @@ export const weddingImages = {
 
 export const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=75",
-    alt: "Sposi che camminano mano nella mano all'aperto",
-    title: "Promessa",
-    caption: "Un momento lento, prima di iniziare davvero a festeggiare."
+    src: "/media/Gallery/Gallery_Eg.jpg",
+    alt: "Daniel e Linda davanti alle piramidi in Egitto",
+    title: "Egitto - 2025",
+    caption: "Insieme, davanti a una meraviglia senza tempo."
   },
   {
-    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1400&q=75",
-    alt: "Allestimento elegante per un ricevimento di nozze",
-    title: "Tavoli",
-    caption: "Dettagli semplici, luci calde e un posto per ogni storia."
+    src: "/media/Gallery/gallery_yes.jpg",
+    alt: "Daniel e Linda nel giorno della proposta",
+    title: "She said YES! - 21/03/2026 Bormio",
+    caption: "Il momento in cui il nostro viaggio è diventato per sempre."
   },
   {
-    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=75",
-    alt: "Brindisi durante un ricevimento di nozze",
-    title: "Brindisi",
-    caption: "Calici in alto per le persone che ci accompagnano da sempre."
+    src: "/media/Gallery/Gallery_ldn.jpg",
+    alt: "Daniel e Linda durante un viaggio a Londra",
+    title: "Londra - 2023",
+    caption: "Una città da scoprire, un ricordo da portare con noi."
   },
   {
-    src: "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1400&q=75",
-    alt: "Pista da ballo illuminata durante una festa di matrimonio",
-    title: "Festa",
-    caption: "La parte in cui la giornata si scioglie nella musica."
+    src: "/media/Gallery/Gallery_Nusa.jpg",
+    alt: "Daniel e Linda a Nusa Penida",
+    title: "Bali - 2026",
+    caption: "Ammirando una delle spiagge più belle al mondo."
+  },
+  {
+    src: "/media/Gallery/Gallery_Pugl.jpg",
+    alt: "Daniel e Linda durante un viaggio in Puglia",
+    title: "Puglia - 2022",
+    caption:
+      "Tra i trulli, luce, mare e pasticciotti... giornate che avremmo voluto non finissero mai."
+  },
+  {
+    src: "/media/Gallery/Gallery_Roma.jpg",
+    alt: "Daniel e Linda a Roma",
+    title: "Roma - 2021",
+    caption:
+      "Il nostro primo viaggio insieme, tra strade eterne e la bellezza di scoprire quanto è bello vedere posti nuovi insieme."
+  },
+  {
+    src: "/media/Gallery/Gallery_Sic.jpg",
+    alt: "Daniel e Linda durante un viaggio in Sicilia",
+    title: "Sicilia - 2024",
+    caption: "Il nostro spot preferito: tramonto e mare."
+  },
+  {
+    src: "/media/Gallery/Gallery_SM.jpg",
+    alt: "Daniel e Linda a Saint Moritz",
+    title: "Saint Moritz - 2025",
+    caption: "Piccole tappe insieme tra montagne, lago e colori d'autunno."
   }
 ] as const;
 
 export const timeline = [
   {
+    time: "16:00",
+    title: "Ritrovo",
+    text: "Accoglienza ospiti: vi aspettiamo con un drink di benvenuto per brindare insieme all'inizio della giornata."
+  },
+  {
     time: "16:30",
     title: "Cerimonia",
-    text: "Accoglienza degli invitati e inizio della promessa."
+    text: "Inizio della promessa."
   },
   {
     time: "18:00",
@@ -48,12 +79,12 @@ export const timeline = [
   {
     time: "20:00",
     title: "Cena",
-    text: "Tavoli, racconti, portate lente e un po di sorpresa."
+    text: "Tavoli imbanditi, racconti da condividere e il piacere di assaporare ogni portata."
   },
   {
     time: "23:00",
     title: "Festa",
-    text: "Dance floor, torta e ultimo brindisi sotto le luci."
+    text: "Torta, ultimo brindisi sotto le luci e party serale con dj set."
   }
 ] as const;
 
