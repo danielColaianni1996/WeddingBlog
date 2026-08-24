@@ -12,7 +12,7 @@ export const ourStory = {
   eyebrow: "La nostra storia",
   title: "Due strade, un solo si",
   highlights: {
-    label: "Insieme dal 2020",
+    label: "Insieme dal 2021",
     text: "Ci siamo promessi a Bormio il 21 marzo 2026"
   },
   photos: [
@@ -21,18 +21,18 @@ export const ourStory = {
       alt: "Ritratto di Daniel",
       role: "Lo sposo",
       name: "Daniel",
-      bio: "Quello che organizza gli itinerari, prenota i voli e conta i giorni: a Bormio ha tirato fuori l'anello con le mani che tremavano."
+      bio: "Romantico quanto basta, testardo quanto serve e sempre pronto a trasformare ogni piccola decisione in un progetto da analizzare da buon informatico.\n Con Linda ha finalmente trovato qualcuno disposto a sopportarlo… e soprattutto a sposarlo."
     },
     {
       src: "/media/OurStory/portrait-placeholder.svg",
       alt: "Ritratto di Linda",
       role: "La sposa",
       name: "Linda",
-      bio: "Quella che trova sempre il posto giusto per il tramonto, dalla Sicilia a Nusa Penida. Il 21 marzo 2026 ha detto si senza pensarci."
+      bio: "Solare, dolce e determinata. Adora organizzare tutto nei minimi dettagli, ma soprattutto ama condividere ogni momento con le persone che ama.\n Inoltre ha una pazienza sorprendente (soprattutto con Daniel)… qualità che, a quanto pare, tornerà molto utile anche dopo il matrimonio."
     }
   ],
   quote:
-    "\u00ab Il primo viaggio insieme e stato Roma, nel 2021. Poi la Puglia, Londra, la Sicilia, l'Egitto, Bali. Il 28 agosto 2027, alla Vigna Chinet, partiamo per quello che non finisce. \u00bb"
+    "\u00ab Siamo diversi in tante cose, il sole e la luna, il mare a la montagna, ma alla fine troviamo sempre il nostro compromesso, quello che ci fa andare nella stessa direzione. \n Il 28 agosto 2027 sarà il nostro “Sì”: il giorno in cui sceglieremo di continuare a essere esattamente così, diversi ma sempre dalla stessa parte.  \u00bb"
 } as const;
 
 // Foto segnaposto: sostituire quando avremo la foto definitiva del viaggio di nozze.
@@ -75,13 +75,6 @@ export const galleryImages = [
     caption: "Ammirando una delle spiagge più belle al mondo."
   },
   {
-    src: "/media/Gallery/Gallery_Pugl.jpg",
-    alt: "Daniel e Linda durante un viaggio in Puglia",
-    title: "Puglia - 2022",
-    caption:
-      "Tra i trulli, luce, mare e pasticciotti... giornate che avremmo voluto non finissero mai."
-  },
-  {
     src: "/media/Gallery/Gallery_Roma.jpg",
     alt: "Daniel e Linda a Roma",
     title: "Roma - 2021",
@@ -93,6 +86,13 @@ export const galleryImages = [
     alt: "Daniel e Linda durante un viaggio in Sicilia",
     title: "Sicilia - 2024",
     caption: "Il nostro spot preferito: tramonto e mare."
+  },
+  {
+    src: "/media/Gallery/Gallery_Pugl.jpg",
+    alt: "Daniel e Linda durante un viaggio in Puglia",
+    title: "Puglia - 2022",
+    caption:
+      "Tra i trulli, luce, mare e pasticciotti... giornate che avremmo voluto non finissero mai."
   },
   {
     src: "/media/Gallery/Gallery_SM.jpg",
@@ -166,10 +166,5 @@ export const faqs = [
     question: "I bambini sono invitati?",
     answer:
       "Si, certo. I più piccoli sono i benvenuti: ci farà piacere condividere la giornata anche con loro."
-  },
-  {
-    question: "É prevista una lista nozze?",
-    answer:
-      "No, la vostra presenza è il regalo più bello per noi. Se desiderate comunque farci un pensiero, potete contribuire alla nostra luna di miele tramite bonifico bancario. Nell'invito cartaceo saranno presenti i dettagli."
   }
 ] as const;

@@ -15,7 +15,8 @@ export function CoverSection({ withFrame = false }: SectionFrameProps) {
     <section className={className} aria-label="Daniel e Linda">
       <div className="cover-card" style={coverStyle}>
         <div className="cover-copy">
-          <h1>Preparati al grande evento</h1>
+          <h1> Ci sposiamo!</h1>
+          <h1> Pronti a festeggiare con noi?</h1>
           <p className="wedding-date">28 Agosto 2027</p>
         </div>
 
