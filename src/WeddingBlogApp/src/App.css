@@ -8,8 +8,9 @@
 @import "./styles/components/admin-table.css";
 @import "./styles/components/loading.css";
 @import "./styles/sections/cover.css";
-@import "./styles/sections/save-the-date.css";
 @import "./styles/sections/countdown.css";
+@import "./styles/sections/save-the-date.css";
+@import "./styles/sections/our-story.css";
 @import "./styles/sections/location.css";
 @import "./styles/sections/story.css";
 @import "./styles/sections/gallery.css";

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 type SectionIntroProps = {
   eyebrow: string;
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   titleClassName?: string;
 };

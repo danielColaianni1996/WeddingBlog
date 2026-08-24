@@ -7,6 +7,34 @@ export const weddingImages = {
     "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1400&q=75"
 } as const;
 
+// I due `src` sono placeholder: sostituire con i ritratti reali in /media/OurStory.
+export const ourStory = {
+  eyebrow: "La nostra storia",
+  title: "Due strade, un solo si",
+  highlights: {
+    label: "Insieme dal 2020",
+    text: "Ci siamo promessi a Bormio il 21 marzo 2026"
+  },
+  photos: [
+    {
+      src: "/media/OurStory/portrait-placeholder.svg",
+      alt: "Ritratto di Daniel",
+      role: "Lo sposo",
+      name: "Daniel",
+      bio: "Quello che organizza gli itinerari, prenota i voli e conta i giorni: a Bormio ha tirato fuori l'anello con le mani che tremavano."
+    },
+    {
+      src: "/media/OurStory/portrait-placeholder.svg",
+      alt: "Ritratto di Linda",
+      role: "La sposa",
+      name: "Linda",
+      bio: "Quella che trova sempre il posto giusto per il tramonto, dalla Sicilia a Nusa Penida. Il 21 marzo 2026 ha detto si senza pensarci."
+    }
+  ],
+  quote:
+    "\u00ab Il primo viaggio insieme e stato Roma, nel 2021. Poi la Puglia, Londra, la Sicilia, l'Egitto, Bali. Il 28 agosto 2027, alla Vigna Chinet, partiamo per quello che non finisce. \u00bb"
+} as const;
+
 export const galleryImages = [
   {
     src: "/media/Gallery/Gallery_Eg.jpg",

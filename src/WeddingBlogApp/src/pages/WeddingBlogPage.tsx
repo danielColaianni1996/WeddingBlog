@@ -4,6 +4,7 @@ import { CoverSection } from "../components/sections/CoverSection";
 import { FaqSection } from "../components/sections/FaqSection";
 import { GallerySection } from "../components/sections/GallerySection";
 import { LocationSection } from "../components/sections/LocationSection";
+import { OurStorySection } from "../components/sections/OurStorySection";
 import { RsvpSection } from "../components/sections/RsvpSection";
 import { SaveTheDateSection } from "../components/sections/SaveTheDateSection";
 import { StorySection } from "../components/sections/StorySection";
@@ -54,8 +55,9 @@ export function WeddingBlogPage() {
   return (
     <main>
       <CoverSection withFrame="top" />
-      <SaveTheDateSection />
       <CountdownSection withFrame="both" />
+      <SaveTheDateSection />
+      <OurStorySection />
       <LocationSection />
       <StorySection />
       <GallerySection />
