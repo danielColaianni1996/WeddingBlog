@@ -1,0 +1,14 @@
+{
+  "name": "weddingblog-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "src/WeddingBlogApp"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace weddingblog",
+    "build": "npm run build --workspace weddingblog",
+    "lint": "npm run lint --workspace weddingblog",
+    "preview": "npm run preview --workspace weddingblog"
+  }
+}

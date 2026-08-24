@@ -29,8 +29,7 @@ export function SaveTheDateSection({ withFrame = false }: SectionFrameProps) {
         title="Un giorno da vivere insieme"
       >
         <p>
-          Guarda il nostro video del save the date e lasciati accompagnare verso
-          il giorno che vivremo insieme.
+          Guarda il nostro video del save the date
         </p>
         <a className="primary-action" href="#la-giornata">
           Scopri i dettagli

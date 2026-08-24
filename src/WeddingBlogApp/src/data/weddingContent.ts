@@ -21,18 +21,18 @@ export const ourStory = {
       alt: "Ritratto di Daniel",
       role: "Lo sposo",
       name: "Daniel",
-      bio: "Romantico quanto basta, testardo quanto serve e sempre pronto a trasformare ogni piccola decisione in un progetto da analizzare da buon informatico.\n Con Linda ha finalmente trovato qualcuno disposto a sopportarlo… e soprattutto a sposarlo."
+      bio: "Romantico quanto basta, testardo quanto serve. Ama i gin tonic, adora la tecnologia e, da buon informatico, trova sempre un modo per trasformare qualsiasi cosa in qualcosa da analizzare."
     },
     {
       src: "/media/OurStory/portrait-placeholder.svg",
       alt: "Ritratto di Linda",
       role: "La sposa",
       name: "Linda",
-      bio: "Solare, dolce e determinata. Adora organizzare tutto nei minimi dettagli, ma soprattutto ama condividere ogni momento con le persone che ama.\n Inoltre ha una pazienza sorprendente (soprattutto con Daniel)… qualità che, a quanto pare, tornerà molto utile anche dopo il matrimonio."
+      bio: "Solare, dolce e determinata. Vive di momenti, adora stare con le persone che ama e organizzare tutto nei minimi dettagli. Ha sempre mille pensieri per la testa e, quando pensa di aver finito, probabilmente ne ha già iniziati altri tre."
     }
   ],
   quote:
-    "\u00ab Siamo diversi in tante cose, il sole e la luna, il mare a la montagna, ma alla fine troviamo sempre il nostro compromesso, quello che ci fa andare nella stessa direzione. \n Il 28 agosto 2027 sarà il nostro “Sì”: il giorno in cui sceglieremo di continuare a essere esattamente così, diversi ma sempre dalla stessa parte.  \u00bb"
+    "\u00ab Siamo diversi in tante cose, ma alla fine la nostra forza è guardarci sempre negli occhi e trovare il nostro compromesso, quello che ci fa sorridere e andare nella stessa direzione. Il 28 agosto 2027 sarà il nostro “Sì”: il giorno in cui sceglieremo di continuare a essere esattamente così, diversi ma sempre dalla stessa parte.  \u00bb"
 } as const;
 
 // Foto segnaposto: sostituire quando avremo la foto definitiva del viaggio di nozze.
@@ -40,7 +40,7 @@ export const giftRegistry = {
   eyebrow: "Il nostro viaggio di nozze",
   title: "Un safari in Africa e il mare delle Seychelles",
   description:
-    "Il regalo che sogniamo e il nostro viaggio di nozze: un safari nella savana africana e qualche giorno di relax alle Seychelles. Se vorrete contribuire a questo viaggio, per noi sara un pensiero bellissimo.",
+    "Il regalo che sogniamo è il nostro viaggio di nozze: un safari nella savana africana e qualche giorno di relax alle Seychelles. Se vorrete contribuire a realizzare questo sogno, per noi sarà un pensiero davvero speciale.",
   photo: {
     src: "/media/GiftRegistry/gift-placeholder.svg",
     alt: "Foto del viaggio di nozze in arrivo"
@@ -79,7 +79,7 @@ export const galleryImages = [
     alt: "Daniel e Linda a Roma",
     title: "Roma - 2021",
     caption:
-      "Il nostro primo viaggio insieme, tra strade eterne e la bellezza di scoprire quanto è bello vedere posti nuovi insieme."
+      "Il nostro primo viaggio, tra strade eterne e la bellezza di scoprire quanto è bello vedere posti nuovi insieme."
   },
   {
     src: "/media/Gallery/Gallery_Sic.jpg",
@@ -92,13 +92,13 @@ export const galleryImages = [
     alt: "Daniel e Linda durante un viaggio in Puglia",
     title: "Puglia - 2022",
     caption:
-      "Tra i trulli, luce, mare e pasticciotti... giornate che avremmo voluto non finissero mai."
+      "Tra i trulli, sole, mare e pasticciotti... giornate che avremmo voluto non finissero mai."
   },
   {
     src: "/media/Gallery/Gallery_SM.jpg",
     alt: "Daniel e Linda a Saint Moritz",
     title: "Saint Moritz - 2025",
-    caption: "Piccole tappe insieme tra montagne, lago e colori d'autunno."
+    caption: "Piccole tappe tra montagne, laghi e colori d’autunno."
   }
 ] as const;
 
@@ -106,12 +106,12 @@ export const timeline = [
   {
     time: "16:00",
     title: "Ritrovo",
-    text: "Accoglienza ospiti: vi aspettiamo con un drink di benvenuto per brindare insieme all'inizio della giornata."
+    text: "Accoglienza ospiti: vi aspettiamo con un drink di benvenuto per brindare all'inizio della giornata."
   },
   {
     time: "16:30",
     title: "Cerimonia",
-    text: "Inizio della promessa."
+    text: "L'inizio della promessa."
   },
   {
     time: "18:00",
@@ -145,12 +145,12 @@ export const faqs = [
   {
     question: "E previsto un dress code?",
     answer:
-      "Non è previsto un dress code specifico: sentitevi liberi di scegliere ciò che vi fa sentire al meglio. Vi chiediamo solo un abbigliamento elegante e di evitare il bianco, il verde e il rosso."
+      "Non è previsto un dress code specifico: sentitevi liberi di scegliere ciò che vi fa sentire al meglio. Vi chiediamo solo un abbigliamento elegante e di evitare il bianco, il verde e il rosso.(Come la bandiera italiana!)"
   },
   {
     question: "Cerimonia e ricevimento saranno nello stesso luogo?",
     answer:
-      "Si, sarà tutto nella stessa location, così potremo goderci ogni momento insieme senza altri spostamenti."
+      "Si, sarà tutto nella stessa location, così potremo goderci ogni momento senza altri spostamenti."
   },
   {
     question: "Ci sara parcheggio?",
