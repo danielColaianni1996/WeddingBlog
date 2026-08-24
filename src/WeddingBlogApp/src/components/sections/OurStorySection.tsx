@@ -38,7 +38,9 @@ export function OurStorySection({ withFrame = false }: SectionFrameProps) {
           <span className="our-story__notes-label">
             {ourStory.highlights.label}
           </span>
-          <p className="our-story__notes-highlight">{ourStory.highlights.text}</p>
+          <p className="our-story__notes-highlight">
+            {ourStory.highlights.text}
+          </p>
         </div>
 
         <figure className="our-story__photo our-story__photo--bride">
