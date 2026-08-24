@@ -13,23 +13,18 @@ export function CoverSection({ withFrame = false }: SectionFrameProps) {
 
   return (
     <section className={className} aria-label="Daniel e Linda">
-      <div className="cover-card" style={coverStyle}>
-        <div className="cover-copy">
-          <h1> Ci sposiamo!</h1>
-          <h1> Pronti a festeggiare con noi?</h1>
-          <p className="wedding-date">28 Agosto 2027</p>
-        </div>
+      <p className="eyebrow cover-runninghead">Daniel &amp; Linda</p>
 
-        <a
-          className="scroll-cue"
-          href="#save-the-date"
-          aria-label="Scorri alla sezione save the date"
-        >
-          <span className="scroll-cue__mouse" aria-hidden="true">
-            <span />
-          </span>
-          <span className="scroll-cue__text">Scorri</span>
-        </a>
+      <div className="cover-stage">
+        <div className="cover-media" style={coverStyle} />
+      </div>
+
+      <div className="cover-copy">
+        <h1>Ci sposiamo!</h1>
+        <h2>Pronti a festeggiare con noi?</h2>
+        <span className="cover-divider" aria-hidden="true" />
+        <p className="wedding-date">28 Agosto 2027</p>
+        <p className="eyebrow cover-venue">Vigna Chinet &middot; Torino</p>
       </div>
     </section>
   );

@@ -56,7 +56,7 @@ export function WeddingBlogPage() {
   return (
     <div className="page-frame">
       <main>
-        <CoverSection withFrame="top" />
+        <CoverSection />
         <CountdownSection withFrame="both" />
         <SaveTheDateSection />
         <OurStorySection />

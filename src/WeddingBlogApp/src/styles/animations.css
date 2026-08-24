@@ -27,30 +27,3 @@
     transform: rotate(360deg);
   }
 }
-
-@keyframes scroll-cue-bounce {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  50% {
-    transform: translateX(-50%) translateY(0.65rem);
-  }
-}
-
-@keyframes scroll-dot {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-
-  35% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(0.95rem);
-  }
-}

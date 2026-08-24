@@ -1,126 +1,109 @@
+/* Hero ripreso dalla base "botanico" di Nexora (_base-botanico.css, template
+   romantico-giorno): cornice avorio attorno alla foto e cartiglio sovrapposto
+   al suo bordo basso. Le ghirlande floreali del template originale sono
+   omesse: la cornice a foglie del sito assolve gia' quel ruolo. */
+
 .cover-section {
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  background: #fffdf7;
+  min-height: auto;
+  display: block;
+  padding: 0 0 clamp(2.6rem, 6.4vw, 5.75rem);
+  background: #f6f4ec;
+  overflow: visible;
 }
 
-.cover-card {
+.cover-runninghead {
+  margin: 0;
+  padding: clamp(1.15rem, 2.2vw, 1.9rem) 1rem clamp(0.65rem, 1.4vw, 1.15rem);
+  text-align: center;
+}
+
+.cover-stage {
   position: relative;
-  width: min(100%, 94rem);
-  min-height: min(48rem, calc(100svh - clamp(4rem, 10vw, 10rem)));
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(190, 160, 86, 0.35);
-  border-radius: 8px;
-  background:
-    linear-gradient(rgba(38, 56, 42, 0.14), rgba(38, 56, 42, 0.56)),
-    var(--cover-image) center/cover;
-  box-shadow: 0 1.4rem 3.5rem rgba(72, 92, 75, 0.14);
-  overflow: hidden;
+  margin: 0 clamp(0.75rem, 2.8vw, 2.5rem);
+  padding: 0.875rem;
+  border-radius: 18px;
+  background: #fffdf7;
+  box-shadow: 0 1rem 2.15rem rgba(37, 52, 40, 0.08);
 }
 
-.cover-card::before {
+.cover-media {
+  aspect-ratio: 1332 / 792;
+  border-radius: 14px;
+  background: var(--cover-image) center/cover no-repeat;
+}
+
+/* Filetto avorio interno alla foto: 28px dal bordo della cornice, valore
+   fisso e non scalato sulla viewport come nel template originale. */
+.cover-stage::after {
   content: "";
   position: absolute;
-  inset: 1rem;
-  border: 1px solid rgba(255, 253, 247, 0.58);
-  border-radius: 6px;
+  inset: 28px;
+  z-index: 2;
+  border: 1px solid rgba(255, 253, 247, 0.78);
+  border-radius: 12px;
   pointer-events: none;
 }
 
 .cover-copy {
   position: relative;
-  z-index: 1;
-  max-width: 52rem;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  z-index: 4;
+  width: min(43.75rem, 94%);
+  margin: clamp(-7rem, -8vw, -4.875rem) auto 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid rgba(93, 111, 88, 0.22);
+  border-radius: 12px;
+  background: #fffdf7;
+  box-shadow: 0 1rem 2.15rem rgba(37, 52, 40, 0.1);
   text-align: center;
   animation: cover-copy-in 900ms ease 150ms both;
 }
 
-.cover-copy .eyebrow,
-.cover-copy h1,
-.cover-copy .wedding-date {
-  color: #fffdf7;
-  text-shadow: 0 0.35rem 1.8rem rgba(25, 40, 29, 0.32);
-}
-
 .cover-copy h1 {
   max-width: none;
-  font-size: clamp(4.6rem, 11vw, 9rem);
+  margin: 0;
+  color: #b49754;
+  font-family: "Great Vibes", Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 6.5vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
 }
 
-.cover-copy .eyebrow {
-  color: #ead28f;
+.cover-copy h2 {
+  margin: 0;
+  color: #26382a;
+  font-size: clamp(1.7rem, 3.1vw, 2.9rem);
+  line-height: 1.15;
 }
 
-.scroll-cue {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  bottom: clamp(1.5rem, 4vw, 3rem);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  color: #fffdf7;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-  animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+.cover-divider {
+  display: block;
+  width: clamp(5rem, 8.3vw, 7.5rem);
+  height: 1px;
+  margin: clamp(0.9rem, 1.8vw, 1.4rem) auto;
+  background: #b49754;
 }
 
-.scroll-cue__mouse {
-  width: 1.65rem;
-  height: 2.75rem;
-  display: inline-flex;
-  justify-content: center;
-  padding-top: 0.48rem;
-  border: 1px solid rgba(255, 253, 247, 0.86);
-  border-radius: 999px;
-  background: rgba(38, 56, 42, 0.18);
+.cover-copy .wedding-date {
+  margin: 0;
 }
 
-.scroll-cue__mouse span {
-  width: 0.28rem;
-  height: 0.55rem;
-  border-radius: 999px;
-  background: #ead28f;
-  animation: scroll-dot 1.6s ease-in-out infinite;
+.cover-copy .cover-venue {
+  margin: 0.55rem 0 0;
 }
 
-.scroll-cue__text {
-  text-shadow: 0 0.3rem 1rem rgba(25, 40, 29, 0.35);
-}
-
-@media (max-width: 980px) {
-  .cover-card {
-    min-height: calc(100svh - 4rem);
-  }
-}
-
-@media (max-width: 560px) {
-  .cover-card {
-    min-height: calc(100svh - 2.5rem);
-    background-position: center;
+/* Il mockup mobile non ha l'occhiello sopra la cornice: la vista parte dalla
+   foto e i nomi restano nel cartiglio poco sotto. */
+@media (max-width: 639px) {
+  .cover-runninghead {
+    display: none;
   }
 
-  .cover-card::before {
-    inset: 0.65rem;
+  .cover-section {
+    padding-top: 2rem;
   }
 
-  .cover-copy {
-    padding: 1.35rem;
-  }
-
-  .cover-copy h1 {
-    font-size: clamp(4rem, 22vw, 5.8rem);
-  }
-
-  .scroll-cue {
-    bottom: 1.1rem;
+  /* Ritaglio verticale, non la versione rimpicciolita di quello orizzontale. */
+  .cover-media {
+    aspect-ratio: 338 / 498;
   }
 }
