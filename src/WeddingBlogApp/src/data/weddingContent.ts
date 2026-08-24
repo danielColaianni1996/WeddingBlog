@@ -32,7 +32,7 @@ export const ourStory = {
     }
   ],
   quote:
-    "\u00ab Siamo diversi in tante cose, ma alla fine la nostra forza è guardarci sempre negli occhi e trovare il nostro compromesso, quello che ci fa sorridere e andare nella stessa direzione. Il 28 agosto 2027 sarà il nostro “Sì”: il giorno in cui sceglieremo di continuare a essere esattamente così, diversi ma sempre dalla stessa parte.  \u00bb"
+    "\u00ab Siamo diversi in tante cose, ma alla fine la nostra forza è guardarci sempre negli occhi e trovare il nostro compromesso, quello che ci fa sorridere e andare nella stessa direzione. Il 28 agosto 2027 sarà il nostro “Sì”: il giorno in cui sceglieremo di continuare ad essere esattamente così, diversi ma sempre dalla stessa parte.  \u00bb"
 } as const;
 
 // Foto segnaposto: sostituire quando avremo la foto definitiva del viaggio di nozze.
