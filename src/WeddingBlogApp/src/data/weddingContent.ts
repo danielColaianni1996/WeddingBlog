@@ -46,7 +46,7 @@ export const giftRegistry = {
     alt: "Foto del viaggio di nozze in arrivo"
   },
   detailsLabel: "Come partecipare",
-  note: "Seguiranno ulteriori aggiornamenti: non abbiamo ancora deciso se sara un IBAN o un link, ve lo comunicheremo appena possibile."
+  note: "Seguiranno presto ulteriori aggiornamenti su come contribuire: vi faremo sapere appena tutto sara pronto."
 } as const;
 
 export const galleryImages = [

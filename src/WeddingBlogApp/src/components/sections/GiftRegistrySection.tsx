@@ -25,8 +25,8 @@ export function GiftRegistrySection({ withFrame = false }: SectionFrameProps) {
       </div>
 
       <aside className="gift-registry__details">
-        <span className="gift-registry__details-icon" aria-hidden="true" />
         <p className="gift-registry__details-label">
+          <span className="gift-registry__details-icon" aria-hidden="true" />
           {giftRegistry.detailsLabel}
         </p>
         <p>{giftRegistry.note}</p>
