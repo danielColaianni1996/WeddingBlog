@@ -42,7 +42,7 @@ export const giftRegistry = {
   description:
     "Il regalo che sogniamo è il nostro viaggio di nozze: un safari nella savana africana e qualche giorno di relax alle Seychelles. Se vorrete contribuire a realizzare questo sogno, per noi sarà un pensiero davvero speciale.",
   photo: {
-    src: "/media/GiftRegistry/gift-placeholder.svg",
+    src: "/media/GiftRegistry/Safari.jpeg",
     alt: "Foto del viaggio di nozze in arrivo"
   },
   detailsLabel: "Come partecipare",
