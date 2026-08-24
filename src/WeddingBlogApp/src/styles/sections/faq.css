@@ -172,6 +172,7 @@
 
 @media (max-width: 560px) {
   .faq-section {
+    gap: 1.5rem;
     padding: 4rem 1.25rem;
   }
 
