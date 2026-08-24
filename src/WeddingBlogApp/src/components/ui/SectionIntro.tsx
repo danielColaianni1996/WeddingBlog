@@ -19,6 +19,7 @@ export function SectionIntro({
     <div className={className}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 className={titleClassName}>{title}</h2>
+      <span className="section-rule" aria-hidden="true" />
       {children}
     </div>
   );

@@ -26,6 +26,7 @@ h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
   line-height: 0.98;
+  text-wrap: balance;
 }
 
 h1 {

@@ -1,8 +1,9 @@
 .faq-section {
   position: relative;
   display: grid;
-  gap: clamp(2rem, 4vw, 4rem);
-  padding: clamp(2rem, 5vw, 5rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(3rem, 8vw, 7rem);
+  padding-inline: max(clamp(2rem, 5vw, 5rem), calc((100% - 78rem) / 2));
   background: #edf3ea;
   overflow: visible;
 }

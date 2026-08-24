@@ -46,9 +46,26 @@ main {
   min-height: 100svh;
   display: grid;
   align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
-  padding: clamp(2rem, 5vw, 5rem);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  padding-block: clamp(3rem, 8vw, 7rem);
+  /* Fondo a piena larghezza, contenuto centrato entro un max-width editoriale su schermi wide. */
+  padding-inline: max(clamp(2rem, 5vw, 5rem), calc((100% - 78rem) / 2));
   overflow: visible;
+}
+
+.section-rule {
+  display: block;
+  width: 4.5rem;
+  height: 1px;
+  margin: -0.3rem auto 1.15rem;
+  background: linear-gradient(90deg, transparent, #b49754, transparent);
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+}
+
+.reveal-on-scroll.is-visible .section-rule {
+  transform: scaleX(1);
 }
 
 .reveal-on-scroll {
