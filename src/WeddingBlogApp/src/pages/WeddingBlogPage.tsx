@@ -53,16 +53,18 @@ export function WeddingBlogPage() {
   }
 
   return (
-    <main>
-      <CoverSection withFrame="top" />
-      <CountdownSection withFrame="both" />
-      <SaveTheDateSection />
-      <OurStorySection />
-      <LocationSection />
-      <StorySection />
-      <GallerySection />
-      <RsvpSection withFrame="both" />
-      <FaqSection withFrame="bottom" />
-    </main>
+    <div className="page-frame">
+      <main>
+        <CoverSection withFrame="top" />
+        <CountdownSection withFrame="both" />
+        <SaveTheDateSection />
+        <OurStorySection />
+        <LocationSection />
+        <StorySection />
+        <GallerySection />
+        <RsvpSection withFrame="both" />
+        <FaqSection withFrame="bottom" />
+      </main>
+    </div>
   );
 }

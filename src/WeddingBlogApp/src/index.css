@@ -1,6 +1,8 @@
 :root {
   color: #26382a;
-  background: #fffdf7;
+  /* Passe-partout oltre il max-width del .page-frame: un neutro caldo, non il
+     bianco/crema dell'invito, cosi la cornice si vede davvero su schermi wide. */
+  background: #ece2cc;
   font-family:
     Inter,
     ui-sans-serif,
