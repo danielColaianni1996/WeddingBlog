@@ -126,8 +126,16 @@ main > section:last-child {
   .countdown-section,
   .location-section,
   .story-section,
-  .gallery-section {
+  .gallery-section,
+  .gift-registry-section,
+  .rsvp-section {
     grid-template-columns: 1fr;
+    /* Senza questo, l'altezza extra di min-height:100svh viene distribuita
+       come stretch tra le righe (default align-content:normal) invece che
+       raccolta in fondo: risultato, un vuoto enorme tra intro e contenuto
+       ogni volta che il layout collassa a colonna singola ma resta a
+       schermo intero (tra 561px e 980px). */
+    align-content: center;
   }
 
   .video-stage {
