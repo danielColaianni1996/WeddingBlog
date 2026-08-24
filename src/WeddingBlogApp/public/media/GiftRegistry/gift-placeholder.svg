@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-hidden="true">
+  <rect width="640" height="400" fill="#f7efe0" />
+  <g fill="none" stroke="#b49754" stroke-width="4">
+    <circle cx="320" cy="188" r="72" />
+    <path d="M320 138l24 74-24 32-24-32z" stroke-linejoin="round" />
+  </g>
+  <text
+    x="320"
+    y="352"
+    fill="#8a733f"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="20"
+    font-style="italic"
+    text-anchor="middle"
+  >
+    Foto in arrivo
+  </text>
+</svg>

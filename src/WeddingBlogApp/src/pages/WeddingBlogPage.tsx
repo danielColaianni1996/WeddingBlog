@@ -3,6 +3,7 @@ import { CountdownSection } from "../components/sections/CountdownSection";
 import { CoverSection } from "../components/sections/CoverSection";
 import { FaqSection } from "../components/sections/FaqSection";
 import { GallerySection } from "../components/sections/GallerySection";
+import { GiftRegistrySection } from "../components/sections/GiftRegistrySection";
 import { LocationSection } from "../components/sections/LocationSection";
 import { OurStorySection } from "../components/sections/OurStorySection";
 import { RsvpSection } from "../components/sections/RsvpSection";
@@ -62,6 +63,7 @@ export function WeddingBlogPage() {
         <LocationSection />
         <StorySection />
         <GallerySection />
+        <GiftRegistrySection />
         <RsvpSection withFrame="both" />
         <FaqSection withFrame="bottom" />
       </main>

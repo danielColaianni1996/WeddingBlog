@@ -35,6 +35,20 @@ export const ourStory = {
     "\u00ab Il primo viaggio insieme e stato Roma, nel 2021. Poi la Puglia, Londra, la Sicilia, l'Egitto, Bali. Il 28 agosto 2027, alla Vigna Chinet, partiamo per quello che non finisce. \u00bb"
 } as const;
 
+// Foto segnaposto: sostituire quando avremo la foto definitiva del viaggio di nozze.
+export const giftRegistry = {
+  eyebrow: "Il nostro viaggio di nozze",
+  title: "Un safari in Africa e il mare delle Seychelles",
+  description:
+    "Il regalo che sogniamo e il nostro viaggio di nozze: un safari nella savana africana e qualche giorno di relax alle Seychelles. Se vorrete contribuire a questo viaggio, per noi sara un pensiero bellissimo.",
+  photo: {
+    src: "/media/GiftRegistry/gift-placeholder.svg",
+    alt: "Foto del viaggio di nozze in arrivo"
+  },
+  detailsLabel: "Come partecipare",
+  note: "Seguiranno ulteriori aggiornamenti: non abbiamo ancora deciso se sara un IBAN o un link, ve lo comunicheremo appena possibile."
+} as const;
+
 export const galleryImages = [
   {
     src: "/media/Gallery/Gallery_Eg.jpg",
