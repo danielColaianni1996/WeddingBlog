@@ -10,7 +10,7 @@ export const weddingImages = {
 // I due `src` sono placeholder: sostituire con i ritratti reali in /media/OurStory.
 export const ourStory = {
   eyebrow: "La nostra storia",
-  title: "Due strade, un solo si",
+  title: "Due strade, un solo sì",
   highlights: {
     label: "Insieme dal 2021",
     text: "Ci siamo promessi a Bormio il 21 marzo 2026"
@@ -46,7 +46,7 @@ export const giftRegistry = {
     alt: "Foto del viaggio di nozze in arrivo"
   },
   detailsLabel: "Come partecipare",
-  note: "Seguiranno presto ulteriori aggiornamenti su come contribuire: vi faremo sapere appena tutto sara pronto."
+  note: "Seguiranno presto ulteriori aggiornamenti su come contribuire: vi faremo sapere appena tutto sarà pronto."
 } as const;
 
 export const galleryImages = [
@@ -59,7 +59,7 @@ export const galleryImages = [
   {
     src: "/media/Gallery/gallery_yes.jpg",
     alt: "Daniel e Linda nel giorno della proposta",
-    title: "She said YES! - 21/03/2026 Bormio",
+    title: "Bormio - 2026",
     caption: "Il momento in cui il nostro viaggio è diventato per sempre."
   },
   {
@@ -153,7 +153,7 @@ export const faqs = [
       "Si, sarà tutto nella stessa location, così potremo goderci ogni momento senza altri spostamenti."
   },
   {
-    question: "Ci sara parcheggio?",
+    question: "Ci sarà parcheggio?",
     answer:
       "Si, presso la location è presente un grande parcheggio a disposizione degli invitati. Sarà presente un parcheggiatore che fornirà indicazioni per i posti auto."
   },
