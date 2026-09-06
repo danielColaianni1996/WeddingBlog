@@ -9,7 +9,7 @@ import {
   initialRsvpFormState,
   toCreateRsvpRequest
 } from "./rsvp/rsvpFormState";
-import type { RsvpDialogState, RsvpFormState } from "./rsvp/types";
+import type { GuestFormState, RsvpDialogState, RsvpFormState } from "./rsvp/types";
 
 export function RsvpSection({ withFrame = false }: SectionFrameProps) {
   const [formState, setFormState] =
@@ -17,8 +17,12 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
   const [dialogState, setDialogState] = useState<RsvpDialogState>(null);
   const [createRsvpResponse, { isLoading }] = useCreateRsvpResponseMutation();
 
-  const updateField = (field: keyof RsvpFormState, value: string) => {
-    setFormState((currentValue) => ({ ...currentValue, [field]: value }));
+  const updateGuests = (guests: Array<GuestFormState>) => {
+    setFormState((currentValue) => ({ ...currentValue, guests }));
+  };
+
+  const updateNotes = (notes: string) => {
+    setFormState((currentValue) => ({ ...currentValue, notes }));
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -59,7 +63,8 @@ export function RsvpSection({ withFrame = false }: SectionFrameProps) {
         <RsvpForm
           formState={formState}
           isLoading={isLoading}
-          onFieldChange={updateField}
+          onGuestsChange={updateGuests}
+          onNotesChange={updateNotes}
           onSubmit={handleSubmit}
         />
       </RevealDiv>

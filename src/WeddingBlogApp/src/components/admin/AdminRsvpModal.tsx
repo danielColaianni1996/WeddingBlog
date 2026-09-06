@@ -1,4 +1,5 @@
 import type { FormEvent } from "react";
+import type { GuestFormState } from "../sections/rsvp/types";
 import { AdminRsvpFields } from "./AdminRsvpFields";
 import type { AdminRsvpFormState, RsvpModalMode } from "./types";
 
@@ -8,7 +9,8 @@ type AdminRsvpModalProps = {
   message: string | null;
   error: string | null;
   isSaving: boolean;
-  onChange: (field: keyof AdminRsvpFormState, value: string) => void;
+  onGuestsChange: (guests: Array<GuestFormState>) => void;
+  onNotesChange: (notes: string) => void;
   onClose: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 };
@@ -19,7 +21,8 @@ export function AdminRsvpModal({
   message,
   error,
   isSaving,
-  onChange,
+  onGuestsChange,
+  onNotesChange,
   onClose,
   onSubmit
 }: AdminRsvpModalProps) {
@@ -46,7 +49,11 @@ export function AdminRsvpModal({
           </button>
         </div>
 
-        <AdminRsvpFields formState={formState} onChange={onChange} />
+        <AdminRsvpFields
+          formState={formState}
+          onGuestsChange={onGuestsChange}
+          onNotesChange={onNotesChange}
+        />
 
         {message && <p className="admin-form-message">{message}</p>}
         {error && <p className="admin-form-error">{error}</p>}

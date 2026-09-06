@@ -1,9 +1,6 @@
-export type AdminRsvpFormState = {
-  firstName: string;
-  lastName: string;
-  adultsCount: string;
-  childrenCount: string;
-  foodNotes: string;
-};
+export type {
+  GuestFormState,
+  RsvpFormState as AdminRsvpFormState
+} from "../sections/rsvp/types";
 
 export type RsvpModalMode = "create" | "edit";

@@ -1,5 +1,5 @@
 import writeXlsxFile, { type Row } from "write-excel-file/browser";
-import type { RsvpResponse } from "../../services/weddingBlogApi";
+import type { RsvpParty } from "../../services/weddingBlogApi";
 
 const dateTimeFormatter = new Intl.DateTimeFormat("it-IT", {
   dateStyle: "short",
@@ -10,39 +10,51 @@ function getExportFileName() {
   return `rsvp-${new Date().toISOString().slice(0, 10)}.xlsx`;
 }
 
-function toExportRows(responses: Array<RsvpResponse>): Array<Row> {
+function toExportRows(parties: Array<RsvpParty>): Array<Row> {
   return [
     [
+      "Referente",
       "Nome",
       "Cognome",
-      "Adulti",
-      "Bambini",
-      "Totale",
-      "Allergie / preferenze",
+      "Tipo",
+      "Età",
+      "Allergie",
+      "Note nucleo",
       "Ricevuta il"
     ],
-    ...responses.map((response) => [
-      response.firstName,
-      response.lastName,
-      response.adultsCount,
-      response.childrenCount,
-      response.adultsCount + response.childrenCount,
-      response.foodNotes ?? "",
-      dateTimeFormatter.format(new Date(response.createdAtUtc))
-    ])
+    ...parties.flatMap((party) => {
+      const primaryGuest =
+        party.guests.find((guest) => guest.isPrimaryContact) ?? party.guests[0];
+      const referente = primaryGuest
+        ? `${primaryGuest.firstName} ${primaryGuest.lastName}`
+        : "-";
+      const receivedAt = dateTimeFormatter.format(new Date(party.createdAtUtc));
+
+      return party.guests.map((guest) => [
+        referente,
+        guest.firstName,
+        guest.lastName,
+        guest.isChild ? "Bambino" : "Adulto",
+        guest.age ?? "",
+        guest.allergies ?? "",
+        party.notes ?? "",
+        receivedAt
+      ]);
+    })
   ];
 }
 
-export async function exportRsvpResponses(responses: Array<RsvpResponse>) {
-  await writeXlsxFile(toExportRows(responses), {
+export async function exportRsvpResponses(parties: Array<RsvpParty>) {
+  await writeXlsxFile(toExportRows(parties), {
     sheet: "RSVP",
     columns: [
       { width: 18 },
       { width: 18 },
+      { width: 18 },
       { width: 10 },
-      { width: 10 },
-      { width: 10 },
-      { width: 34 },
+      { width: 8 },
+      { width: 30 },
+      { width: 30 },
       { width: 18 }
     ]
   }).toFile(getExportFileName());

@@ -1,61 +1,27 @@
+import { GuestFieldsList } from "../sections/rsvp/GuestFieldsList";
+import type { GuestFormState } from "../sections/rsvp/types";
 import type { AdminRsvpFormState } from "./types";
 
 type AdminRsvpFieldsProps = {
   formState: AdminRsvpFormState;
-  onChange: (field: keyof AdminRsvpFormState, value: string) => void;
+  onGuestsChange: (guests: Array<GuestFormState>) => void;
+  onNotesChange: (notes: string) => void;
 };
 
-export function AdminRsvpFields({ formState, onChange }: AdminRsvpFieldsProps) {
+export function AdminRsvpFields({
+  formState,
+  onGuestsChange,
+  onNotesChange
+}: AdminRsvpFieldsProps) {
   return (
     <>
-      <div className="admin-form-grid">
-        <label>
-          Nome
-          <input
-            type="text"
-            value={formState.firstName}
-            onChange={(event) => onChange("firstName", event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Cognome
-          <input
-            type="text"
-            value={formState.lastName}
-            onChange={(event) => onChange("lastName", event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Numero adulti
-          <input
-            type="number"
-            min="1"
-            max="12"
-            value={formState.adultsCount}
-            onChange={(event) => onChange("adultsCount", event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Numero bambini
-          <input
-            type="number"
-            min="0"
-            max="12"
-            value={formState.childrenCount}
-            onChange={(event) => onChange("childrenCount", event.target.value)}
-            required
-          />
-        </label>
-      </div>
+      <GuestFieldsList guests={formState.guests} onChange={onGuestsChange} />
 
       <label>
-        Allergie o preferenze alimentari
+        Note generali
         <textarea
-          value={formState.foodNotes}
-          onChange={(event) => onChange("foodNotes", event.target.value)}
+          value={formState.notes}
+          onChange={(event) => onNotesChange(event.target.value)}
           rows={3}
         />
       </label>

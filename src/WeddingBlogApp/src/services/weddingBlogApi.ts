@@ -2,17 +2,29 @@ import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { getSupabase } from "./supabaseClient";
 
-export type CreateRsvpResponseRequest = {
+export type RsvpGuestInput = {
   firstName: string;
   lastName: string;
-  adultsCount: number;
-  childrenCount: number;
-  foodNotes?: string;
+  isChild: boolean;
+  age?: number;
+  allergies?: string;
+  isPrimaryContact: boolean;
 };
 
-export type RsvpResponse = CreateRsvpResponseRequest & {
+export type RsvpGuest = RsvpGuestInput & {
   id: number;
+};
+
+export type CreateRsvpPartyRequest = {
+  notes?: string;
+  guests: Array<RsvpGuestInput>;
+};
+
+export type RsvpParty = {
+  id: number;
+  notes?: string;
   createdAtUtc: string;
+  guests: Array<RsvpGuest>;
 };
 
 export type LoginRequest = {
@@ -25,14 +37,22 @@ export type LoginResponse = {
   isAdmin: boolean;
 };
 
-type RsvpResponseRow = {
+type RsvpGuestRow = {
   id: number;
   first_name: string;
   last_name: string;
-  adults_count: number;
-  children_count: number;
-  food_notes: string | null;
+  is_child: boolean;
+  age: number | null;
+  allergies: string | null;
+  is_primary_contact: boolean;
+  guest_order: number;
+};
+
+type RsvpPartyRow = {
+  id: number;
+  notes: string | null;
   created_at_utc: string;
+  rsvp_guests: Array<RsvpGuestRow>;
 };
 
 type SupabaseApiError = {
@@ -42,8 +62,14 @@ type SupabaseApiError = {
 
 type SupabaseResult<T> = { data: T } | { error: SupabaseApiError };
 
-const rsvpColumns =
-  "id, first_name, last_name, adults_count, children_count, food_notes, created_at_utc";
+const rsvpPartyColumns = `
+  id,
+  notes,
+  created_at_utc,
+  rsvp_guests (
+    id, first_name, last_name, is_child, age, allergies, is_primary_contact, guest_order
+  )
+`;
 
 function toApiError(error: { message: string }): SupabaseApiError {
   return {
@@ -62,25 +88,37 @@ function getConfiguredSupabase():
   }
 }
 
-function toRsvpResponse(row: RsvpResponseRow): RsvpResponse {
+function toRsvpGuest(row: RsvpGuestRow): RsvpGuest {
   return {
     id: row.id,
     firstName: row.first_name,
     lastName: row.last_name,
-    adultsCount: row.adults_count,
-    childrenCount: row.children_count,
-    foodNotes: row.food_notes ?? undefined,
-    createdAtUtc: row.created_at_utc
+    isChild: row.is_child,
+    age: row.age ?? undefined,
+    allergies: row.allergies ?? undefined,
+    isPrimaryContact: row.is_primary_contact
   };
 }
 
-function toRsvpRow(request: CreateRsvpResponseRequest) {
+function toRsvpParty(row: RsvpPartyRow): RsvpParty {
   return {
-    first_name: request.firstName,
-    last_name: request.lastName,
-    adults_count: request.adultsCount,
-    children_count: request.childrenCount,
-    food_notes: request.foodNotes ?? null
+    id: row.id,
+    notes: row.notes ?? undefined,
+    createdAtUtc: row.created_at_utc,
+    guests: [...row.rsvp_guests]
+      .sort((a, b) => a.guest_order - b.guest_order)
+      .map(toRsvpGuest)
+  };
+}
+
+function toGuestPayload(guest: RsvpGuestInput) {
+  return {
+    first_name: guest.firstName,
+    last_name: guest.lastName,
+    is_child: guest.isChild,
+    age: guest.age ?? null,
+    allergies: guest.allergies ?? null,
+    is_primary_contact: guest.isPrimaryContact
   };
 }
 
@@ -181,7 +219,7 @@ export const weddingBlogApi = createApi({
       },
       providesTags: ["Session"]
     }),
-    getRsvpResponses: builder.query<Array<RsvpResponse>, void>({
+    getRsvpResponses: builder.query<Array<RsvpParty>, void>({
       queryFn: async () => {
         const supabaseResult = getConfiguredSupabase();
 
@@ -191,19 +229,19 @@ export const weddingBlogApi = createApi({
 
         const supabase = supabaseResult.client;
         const { data, error } = await supabase
-          .from("rsvp_responses")
-          .select(rsvpColumns)
+          .from("rsvp_parties")
+          .select(rsvpPartyColumns)
           .order("created_at_utc", { ascending: false });
 
         if (error) {
           return { error: toApiError(error) };
         }
 
-        return { data: (data as Array<RsvpResponseRow>).map(toRsvpResponse) };
+        return { data: (data as Array<RsvpPartyRow>).map(toRsvpParty) };
       },
       providesTags: ["Rsvp"]
     }),
-    createRsvpResponse: builder.mutation<void, CreateRsvpResponseRequest>({
+    createRsvpResponse: builder.mutation<void, CreateRsvpPartyRequest>({
       queryFn: async (body) => {
         const supabaseResult = getConfiguredSupabase();
 
@@ -212,9 +250,10 @@ export const weddingBlogApi = createApi({
         }
 
         const supabase = supabaseResult.client;
-        const { error } = await supabase
-          .from("rsvp_responses")
-          .insert(toRsvpRow(body));
+        const { error } = await supabase.rpc("submit_rsvp", {
+          p_notes: body.notes ?? null,
+          p_guests: body.guests.map(toGuestPayload)
+        });
 
         if (error) {
           return { error: toApiError(error) };
@@ -225,8 +264,8 @@ export const weddingBlogApi = createApi({
       invalidatesTags: ["Rsvp"]
     }),
     updateRsvpResponse: builder.mutation<
-      RsvpResponse,
-      { id: number; body: CreateRsvpResponseRequest }
+      void,
+      { id: number; body: CreateRsvpPartyRequest }
     >({
       queryFn: async ({ id, body }) => {
         const supabaseResult = getConfiguredSupabase();
@@ -236,18 +275,17 @@ export const weddingBlogApi = createApi({
         }
 
         const supabase = supabaseResult.client;
-        const { data, error } = await supabase
-          .from("rsvp_responses")
-          .update(toRsvpRow(body))
-          .eq("id", id)
-          .select(rsvpColumns)
-          .single();
+        const { error } = await supabase.rpc("admin_update_rsvp_party", {
+          p_party_id: id,
+          p_notes: body.notes ?? null,
+          p_guests: body.guests.map(toGuestPayload)
+        });
 
         if (error) {
           return { error: toApiError(error) };
         }
 
-        return { data: toRsvpResponse(data as RsvpResponseRow) };
+        return { data: undefined };
       },
       invalidatesTags: ["Rsvp"]
     }),
@@ -261,7 +299,7 @@ export const weddingBlogApi = createApi({
 
         const supabase = supabaseResult.client;
         const { error } = await supabase
-          .from("rsvp_responses")
+          .from("rsvp_parties")
           .delete()
           .eq("id", id);
 

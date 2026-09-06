@@ -1,35 +1,41 @@
 import type {
-  CreateRsvpResponseRequest,
-  RsvpResponse
+  CreateRsvpPartyRequest,
+  RsvpParty
 } from "../../services/weddingBlogApi";
+import { createBlankGuest } from "../sections/rsvp/GuestFieldsList";
 import type { AdminRsvpFormState } from "./types";
 
 export const initialRsvpFormState: AdminRsvpFormState = {
-  firstName: "",
-  lastName: "",
-  adultsCount: "1",
-  childrenCount: "0",
-  foodNotes: ""
+  guests: [{ ...createBlankGuest(), clientKey: "primary" }],
+  notes: ""
 };
 
-export function toAdminFormState(response: RsvpResponse): AdminRsvpFormState {
+export function toAdminFormState(party: RsvpParty): AdminRsvpFormState {
   return {
-    firstName: response.firstName,
-    lastName: response.lastName,
-    adultsCount: String(response.adultsCount),
-    childrenCount: String(response.childrenCount),
-    foodNotes: response.foodNotes ?? ""
+    notes: party.notes ?? "",
+    guests: party.guests.map((guest) => ({
+      clientKey: String(guest.id),
+      firstName: guest.firstName,
+      lastName: guest.lastName,
+      isChild: guest.isChild,
+      age: guest.age !== undefined ? String(guest.age) : "",
+      allergies: guest.allergies ?? ""
+    }))
   };
 }
 
 export function toRsvpRequest(
   formState: AdminRsvpFormState
-): CreateRsvpResponseRequest {
+): CreateRsvpPartyRequest {
   return {
-    firstName: formState.firstName.trim(),
-    lastName: formState.lastName.trim(),
-    adultsCount: Number(formState.adultsCount),
-    childrenCount: Number(formState.childrenCount),
-    foodNotes: formState.foodNotes.trim() || undefined
+    notes: formState.notes.trim() || undefined,
+    guests: formState.guests.map((guest, index) => ({
+      firstName: guest.firstName.trim(),
+      lastName: guest.lastName.trim(),
+      isChild: guest.isChild,
+      age: guest.isChild ? Number(guest.age) : undefined,
+      allergies: guest.allergies.trim() || undefined,
+      isPrimaryContact: index === 0
+    }))
   };
 }

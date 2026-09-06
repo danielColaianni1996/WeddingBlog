@@ -78,6 +78,67 @@
   animation: loading-spin 760ms linear infinite;
 }
 
+.guest-fields-list {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.guest-fields-list__guest {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(79, 105, 79, 0.2);
+  border-radius: 8px;
+}
+
+.guest-fields-list__guest legend {
+  padding: 0 0.4rem;
+  color: #26382a;
+  font-weight: 800;
+}
+
+.guest-fields-list__checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 0.55rem;
+  flex-direction: row !important;
+}
+
+.guest-fields-list__checkbox input {
+  min-height: auto;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.guest-fields-list__remove,
+.guest-fields-list__add {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(79, 105, 79, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  color: #4f694f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guest-fields-list__remove {
+  justify-self: end;
+  border-color: rgba(150, 70, 55, 0.35);
+  color: #964637;
+}
+
+.guest-fields-list__add:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-guest-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
 .rsvp-dialog {
   position: fixed;
   inset: 0;

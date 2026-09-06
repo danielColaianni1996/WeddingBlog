@@ -5,19 +5,19 @@ import {
   getFilteredRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import type { RsvpResponse } from "../../services/weddingBlogApi";
+import type { RsvpParty } from "../../services/weddingBlogApi";
 import { exportRsvpResponses } from "./exportRsvpResponses";
 import { createRsvpTableColumns } from "./rsvpTableColumns";
 import { RsvpTableToolbar } from "./RsvpTableToolbar";
 
 type RsvpResponsesTableProps = {
-  responses: Array<RsvpResponse>;
+  responses: Array<RsvpParty>;
   globalFilter: string;
   isDeleting: boolean;
   isFetching: boolean;
   onCreate: () => void;
-  onDelete: (response: RsvpResponse) => void;
-  onEdit: (response: RsvpResponse) => void;
+  onDelete: (party: RsvpParty) => void;
+  onEdit: (party: RsvpParty) => void;
   onGlobalFilterChange: (value: string) => void;
 };
 

@@ -1,9 +1,15 @@
-export type RsvpFormState = {
+export type GuestFormState = {
+  clientKey: string;
   firstName: string;
   lastName: string;
-  adultsCount: string;
-  childrenCount: string;
-  foodNotes: string;
+  isChild: boolean;
+  age: string;
+  allergies: string;
+};
+
+export type RsvpFormState = {
+  guests: Array<GuestFormState>;
+  notes: string;
 };
 
 export type RsvpDialogState =

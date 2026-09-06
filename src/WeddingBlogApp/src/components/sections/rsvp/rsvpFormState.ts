@@ -1,22 +1,24 @@
-import type { CreateRsvpResponseRequest } from "../../../services/weddingBlogApi";
+import type { CreateRsvpPartyRequest } from "../../../services/weddingBlogApi";
+import { createBlankGuest } from "./GuestFieldsList";
 import type { RsvpFormState } from "./types";
 
 export const initialRsvpFormState: RsvpFormState = {
-  firstName: "",
-  lastName: "",
-  adultsCount: "1",
-  childrenCount: "0",
-  foodNotes: ""
+  guests: [{ ...createBlankGuest(), clientKey: "primary" }],
+  notes: ""
 };
 
 export function toCreateRsvpRequest(
   formState: RsvpFormState
-): CreateRsvpResponseRequest {
+): CreateRsvpPartyRequest {
   return {
-    firstName: formState.firstName.trim(),
-    lastName: formState.lastName.trim(),
-    adultsCount: Number(formState.adultsCount),
-    childrenCount: Number(formState.childrenCount),
-    foodNotes: formState.foodNotes.trim() || undefined
+    notes: formState.notes.trim() || undefined,
+    guests: formState.guests.map((guest, index) => ({
+      firstName: guest.firstName.trim(),
+      lastName: guest.lastName.trim(),
+      isChild: guest.isChild,
+      age: guest.isChild ? Number(guest.age) : undefined,
+      allergies: guest.allergies.trim() || undefined,
+      isPrimaryContact: index === 0
+    }))
   };
 }

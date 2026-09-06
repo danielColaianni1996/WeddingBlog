@@ -7,12 +7,10 @@ import {
   toAdminFormState,
   toRsvpRequest
 } from "../components/admin/rsvpFormState";
-import type {
-  AdminRsvpFormState,
-  RsvpModalMode
-} from "../components/admin/types";
+import type { RsvpModalMode } from "../components/admin/types";
+import type { GuestFormState } from "../components/sections/rsvp/types";
 import {
-  type RsvpResponse,
+  type RsvpParty,
   useCreateRsvpResponseMutation,
   useDeleteRsvpResponseMutation,
   useGetCurrentUserQuery,
@@ -58,8 +56,12 @@ export function AdministrationPage() {
       : null;
   const isSaving = isCreating || isUpdating;
 
-  const updateRsvpForm = (field: keyof AdminRsvpFormState, value: string) => {
-    setRsvpForm((currentValue) => ({ ...currentValue, [field]: value }));
+  const updateRsvpGuests = (guests: Array<GuestFormState>) => {
+    setRsvpForm((currentValue) => ({ ...currentValue, guests }));
+  };
+
+  const updateRsvpNotes = (notes: string) => {
+    setRsvpForm((currentValue) => ({ ...currentValue, notes }));
   };
 
   const resetModalState = () => {
@@ -81,10 +83,10 @@ export function AdministrationPage() {
     setModalMode("create");
   };
 
-  const openEditModal = (response: RsvpResponse) => {
+  const openEditModal = (party: RsvpParty) => {
     setModalMode("edit");
-    setEditingId(response.id);
-    setRsvpForm(toAdminFormState(response));
+    setEditingId(party.id);
+    setRsvpForm(toAdminFormState(party));
     setFormMessage(null);
     setFormError(null);
   };
@@ -128,9 +130,14 @@ export function AdministrationPage() {
     }
   };
 
-  const handleDelete = async (response: RsvpResponse) => {
+  const handleDelete = async (party: RsvpParty) => {
+    const primaryGuest =
+      party.guests.find((guest) => guest.isPrimaryContact) ?? party.guests[0];
+    const referente = primaryGuest
+      ? `${primaryGuest.firstName} ${primaryGuest.lastName}`
+      : "questo nucleo";
     const shouldDelete = window.confirm(
-      `Eliminare la risposta di ${response.firstName} ${response.lastName}?`
+      `Eliminare la risposta di ${referente}?`
     );
 
     if (!shouldDelete) {
@@ -138,8 +145,8 @@ export function AdministrationPage() {
     }
 
     try {
-      await deleteRsvpResponse(response.id).unwrap();
-      if (editingId === response.id) {
+      await deleteRsvpResponse(party.id).unwrap();
+      if (editingId === party.id) {
         resetModalState();
       }
     } catch {
@@ -212,7 +219,8 @@ export function AdministrationPage() {
           message={formMessage}
           error={formError}
           isSaving={isSaving}
-          onChange={updateRsvpForm}
+          onGuestsChange={updateRsvpGuests}
+          onNotesChange={updateRsvpNotes}
           onClose={closeRsvpModal}
           onSubmit={handleSaveRsvp}
         />

@@ -1,87 +1,34 @@
 import type { FormEvent } from "react";
-import type { RsvpFormState } from "./types";
+import { GuestFieldsList } from "./GuestFieldsList";
+import type { GuestFormState, RsvpFormState } from "./types";
 
 type RsvpFormProps = {
   formState: RsvpFormState;
   isLoading: boolean;
-  onFieldChange: (field: keyof RsvpFormState, value: string) => void;
+  onGuestsChange: (guests: Array<GuestFormState>) => void;
+  onNotesChange: (notes: string) => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 };
 
 export function RsvpForm({
   formState,
   isLoading,
-  onFieldChange,
+  onGuestsChange,
+  onNotesChange,
   onSubmit
 }: RsvpFormProps) {
   return (
     <form className="rsvp-form" onSubmit={onSubmit}>
-      <div className="rsvp-form__grid">
-        <label>
-          Nome
-          <input
-            name="firstName"
-            type="text"
-            placeholder="Es. Maria"
-            value={formState.firstName}
-            onChange={(event) => onFieldChange("firstName", event.target.value)}
-            required
-          />
-        </label>
-
-        <label>
-          Cognome
-          <input
-            name="lastName"
-            type="text"
-            placeholder="Es. Rossi"
-            value={formState.lastName}
-            onChange={(event) => onFieldChange("lastName", event.target.value)}
-            required
-          />
-        </label>
-      </div>
-
-      <div className="rsvp-form__grid">
-        <label>
-          Numero adulti
-          <input
-            name="adultsCount"
-            type="number"
-            min="1"
-            max="12"
-            value={formState.adultsCount}
-            onChange={(event) =>
-              onFieldChange("adultsCount", event.target.value)
-            }
-            required
-          />
-        </label>
-
-        <label>
-          Numero bambini
-          <input
-            name="childrenCount"
-            type="number"
-            min="0"
-            max="12"
-            value={formState.childrenCount}
-            onChange={(event) =>
-              onFieldChange("childrenCount", event.target.value)
-            }
-            required
-          />
-        </label>
-      </div>
+      <GuestFieldsList guests={formState.guests} onChange={onGuestsChange} />
 
       <label>
-        Allergie o preferenze alimentari
+        Note generali
         <textarea
-          name="foodNotes"
-          placeholder="Es. vegetariano, no frutta secca, celiachia..."
-          value={formState.foodNotes}
-          onChange={(event) => onFieldChange("foodNotes", event.target.value)}
-          rows={4}
+          name="notes"
+          placeholder="Es. arriveremo con qualche minuto di ritardo, ci serve un seggiolone..."
+          value={formState.notes}
+          onChange={(event) => onNotesChange(event.target.value)}
+          rows={3}
         />
       </label>
 
