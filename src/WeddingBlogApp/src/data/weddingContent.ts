@@ -17,14 +17,14 @@ export const ourStory = {
   },
   photos: [
     {
-      src: "/media/OurStory/portrait-placeholder.svg",
+      src: "/media/OurStory/daniel.jpeg",
       alt: "Ritratto di Daniel",
       role: "Lo sposo",
       name: "Daniel",
       bio: "Romantico quanto basta, testardo quanto serve. Ama i gin tonic, adora la tecnologia e, da buon informatico, trova sempre un modo per trasformare qualsiasi cosa in qualcosa da analizzare."
     },
     {
-      src: "/media/OurStory/portrait-placeholder.svg",
+      src: "/media/OurStory/linda.jpeg",
       alt: "Ritratto di Linda",
       role: "La sposa",
       name: "Linda",
